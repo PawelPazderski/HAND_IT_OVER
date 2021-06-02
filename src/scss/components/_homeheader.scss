@@ -1,0 +1,49 @@
+.homeheader-container {
+    // display:flex;
+    height: 963px;
+    background: transparent url('/assets/Hero Image.png') right 50vw bottom 0% no-repeat padding-box fixed;
+    // * {
+    //     border:1px solid red;
+    // }
+}
+
+.start-help {
+    height: 500px;
+}
+
+.navbottom-container,
+.navtop-container {
+    margin-top: 30px;
+    padding-right:140px;
+    } 
+    ul {
+    display: flex;
+    justify-content: flex-end;
+    li {
+        margin-left: 40px;
+        .navtop-link {
+            font: normal normal normal 14px/85px Open Sans;
+            padding: 5px 10px;
+            text-align: left;
+            text-decoration: none;
+            border: 1px solid transparent;
+            color: $secondary-grey;
+            &:hover{
+                border: 1px solid $primary-yellow;
+            }
+        }
+        .navbottom-link {
+            padding: 5px 10px;
+            text-align: left;
+            text-decoration: none;
+            font: normal normal normal 18px/24px Open Sans;
+            letter-spacing: 0px;
+            border: 1px solid transparent;
+            color: $primary-grey;
+            &:hover{
+                border: 1px solid $primary-grey;
+            }
+        }
+    }
+}
+

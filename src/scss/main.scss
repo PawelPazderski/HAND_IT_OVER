@@ -3,6 +3,10 @@
 @import 'settings/fonts';
 @import 'settings/colors';
 
+@import 'components/homethreecolumns';
+@import 'components/homeheader';
+
 body {
     font-family: $font-base;
 }
+

@@ -1,0 +1,38 @@
+// .homethreecolumns-container * {
+//     border: 1px solid red;
+// }
+
+.homethreecolumns-container {
+    height: 384px;
+    background: url("/assets/3 Columns Background.png") no-repeat center/cover;
+    .organizations-about {
+        height:100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .organizations-about-single {
+        width: 25%;
+        text-align: center;
+        .h1-about-single{
+            color: $text-on-yellow-color;
+            font-weight: 100;
+            font-size: 90px;
+        }
+        .h3-about-single {
+            color: $primary-grey;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .h5-about-single {
+            text-align: center;
+            font: normal normal 300 14px/24px Merriweather;
+            letter-spacing: -0.32px;
+            color: $primary-grey;
+            opacity: 1;
+        }
+    }
+}
+

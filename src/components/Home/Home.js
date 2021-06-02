@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import HomeThreeColumns from '../HomeThreeColumns'
+import HomeHeader from '../HomeHeader'
 
 
 const Home = () => {
@@ -7,7 +9,8 @@ const Home = () => {
     return (
     <>
         <div className="home-container">
-            <h1>Let's do it</h1>
+            <HomeHeader />
+            <HomeThreeColumns />
         </div>
         
     </>)
