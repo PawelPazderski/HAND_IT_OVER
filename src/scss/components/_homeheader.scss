@@ -1,5 +1,6 @@
 .homeheader-container {
-    // display:flex;
+    display:flex;
+    flex-direction: column;
     height: 963px;
     background: transparent url('/assets/Hero Image.png') right 50vw bottom 0% no-repeat padding-box fixed;
     // * {
@@ -44,6 +45,26 @@
                 border: 1px solid $primary-grey;
             }
         }
+    }
+}
+
+.start-help {
+    display: flex;
+    justify-content: center;
+    margin-top:50px;
+    .header-link{
+        border:1px solid $primary-grey;
+        width:30%;
+        height:fit-content;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font: normal normal 300 36px/45px Open Sans;
+        letter-spacing: 0px;
+        color: $primary-grey;
+        margin-left:25px;
+        margin-right:25px;
     }
 }
 
