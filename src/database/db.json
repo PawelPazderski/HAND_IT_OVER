@@ -1,0 +1,137 @@
+{
+    "fundations": [
+        {
+            "id": 1,
+            "type": "Fundacja",
+            "name": "Dbam o Zdrowie",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+            "description": "W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
+        },
+        {
+            "id": 2,
+            "type": "Fundacja",
+            "name": "Dla dzieci",
+            "goal": "Pomoc dzieciom z ubogich rodzin.",
+            "products": "ubrania, meble, zabawki"
+        },
+        {
+            "id": 3,
+            "type": "Fundacja",
+            "name": "Bez domu",
+            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+            "products": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+            "id": 4,
+            "type": "Fundacja",
+            "name": "Marysieńka",
+            "goal": "Pomoc dla osób z niepełnosprawnością.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 5,
+            "type": "Fundacja",
+            "name": "Zdąrzyć z pomocą",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 6,
+            "type": "Fundacja",
+            "name": "Damy radę",
+            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 7,
+            "type": "Fundacja",
+            "name": "Razem łatwiej",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 8,
+            "type": "Fundacja",
+            "name": "Dla Was od nas",
+            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 9,
+            "type": "Fundacja",
+            "name": "Nie jesteś sam",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        }
+    ],
+    "local": [
+        {
+            "id": 1,
+            "type": "Zbiórka",
+            "name": "Po sąsiedzku",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+        },
+        {
+            "id": 2,
+            "type": "Zbiórka",
+            "name": "Nasz fyrtel",
+            "goal": "Pomoc dzieciom z ubogich rodzin.",
+            "products": "ubrania, meble, zabawki"
+        },
+        {
+            "id": 3,
+            "type": "Zbiórka",
+            "name": "Ho no tu",
+            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+            "products": "ubrania, jedzenie, ciepłe koce"
+        }
+    ],
+    "organizations": [
+        {
+            "id": 1,
+            "type": "Organizacja",
+            "name": "Lorem Ipsum 1",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+            "description": "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+        },
+        {
+            "id": 2,
+            "type": "Organizacja",
+            "name": "Lorem Ipsum 2",
+            "goal": "Pomoc dzieciom z ubogich rodzin.",
+            "products": "ubrania, meble, zabawki"
+        },
+        {
+            "id": 3,
+            "type": "Organizacja",
+            "name": "Lorem Ipsum 3",
+            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+            "products": "ubrania, jedzenie, ciepłe koce"
+        },
+        {
+            "id": 4,
+            "type": "Organizacja",
+            "name": "Lorem Ipsum 4",
+            "goal": "Pomoc dla osób z niepełnosprawnością.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 5,
+            "type": "Organizacja",
+            "name": "Lorem Ipsum 5",
+            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        },
+        {
+            "id": 6,
+            "type": "Organizacja",
+            "name": "Lorem Ipsum 6",
+            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+        }
+    ]
+}

@@ -7,13 +7,19 @@ import './whowehelp.scss'
 
 
 const HomeWhoWeHelp = () => {
+    const [ fundations, setFundations ] = useState([])
+    const [organizations, setOrganizations ] = useState([])
+    const [local, setLocal ] = useState([])
+
+
 
     return (
     <>
         <div id="komu-pomagamy" className="whowehelp-container">
+            <Heading title="Komu pomagamy?" />
         
         </div>
     </>)
 }
     
-export default AboHomeWhoWeHelput
+export default HomeWhoWeHelp
