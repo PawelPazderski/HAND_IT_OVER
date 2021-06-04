@@ -14,16 +14,16 @@ const NavBottom = () => {
                    <HashLink className="navbottom-link" to="/#">Start</HashLink>
                </li>
                <li>
-                   <HashLink className="navbottom-link" to="/#three-columns-marker">O co chodzi?</HashLink>
+                   <HashLink className="navbottom-link" to="/#o-co-chodzi">O co chodzi?</HashLink>
                </li>
                <li>
-                   <HashLink className="navbottom-link" to="/#three-columns-marker">O nas</HashLink>
+                   <HashLink className="navbottom-link" to="/#o-nas">O nas</HashLink>
                </li>
                <li>
-                   <HashLink className="navbottom-link" to="/#three-columns-marker">Fundacje i organizacje</HashLink>
+                   <HashLink className="navbottom-link" to="/#">Fundacje i organizacje</HashLink>
                </li>
                <li>
-                   <HashLink className="navbottom-link" to="/#three-columns-marker">Kontakt</HashLink>
+                   <HashLink className="navbottom-link" to="/#">Kontakt</HashLink>
                </li>
            </ul>
 

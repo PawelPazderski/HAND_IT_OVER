@@ -22,6 +22,14 @@ const Login = () => {
                    <input type="password"></input>
                </form>
            </div>
+           <ul>
+               <li>
+                   <Link className="bottom-link" to="/login">Zaloguj się</Link>
+               </li>
+               <li>
+                   <Link className="bottom-link" to="/register">Załóż konto</Link>
+               </li>
+           </ul>
         </div>
     </>)
 }

@@ -1,0 +1,25 @@
+.about-container {
+    display:flex;
+    height:850px;
+    background-color: $background-grey;
+    .about-left {
+        padding-top: 150px;
+        width: 50%;
+        h2 {
+            width:71%;
+            margin: 25px auto;
+            text-align: center;
+            font: normal normal normal 30px/54px Open Sans;
+            letter-spacing: -0.6px;
+            color: $primary-grey;
+        }
+        .about-signature {
+            height:150px;
+            background: transparent url('/assets/Signature.svg') right 150px bottom 0 no-repeat ;
+        }
+    }
+    .about-right{
+        width:50%;
+        background: transparent url('/assets/People.jpg') no-repeat center/cover;
+    }
+}

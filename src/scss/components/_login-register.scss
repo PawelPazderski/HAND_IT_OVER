@@ -27,3 +27,26 @@
     }
 
 } 
+
+.login-container ul,
+.register-container ul {
+    justify-content: center;
+    li {
+        margin: 0;
+        .bottom-link{
+            font: normal normal normal 14px/85px $font-base;
+            padding: 5px 10px;
+            text-align: left;
+            text-decoration: none;
+            border: 1px solid transparent;
+            color: $secondary-grey;
+            &:hover{
+                border: 1px solid $primary-grey;
+            }
+        }
+    }
+    
+    li:last-child {
+        margin-left:250px;
+    }
+}
