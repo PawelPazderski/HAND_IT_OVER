@@ -1,10 +1,8 @@
-// .homethreecolumns-container * {
-//     border: 1px solid red;
-// }
+@import "../../../scss/settings/variables";
 
 .homethreecolumns-container {
     height: 384px;
-    background: url("/assets/3 Columns Background.png") no-repeat center/cover;
+    background: url("3 Columns Background.png") no-repeat center/cover;
     .organizations-about {
         height:100%;
         display: flex;

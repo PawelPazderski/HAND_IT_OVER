@@ -1,14 +1,5 @@
 @import 'config/reset';
-
-@import 'settings/fonts';
-@import 'settings/colors';
-
-@import 'components/homethreecolumns';
-@import 'components/homeheader';
-@import 'components/heading';
-@import 'components/steps';
-@import 'components/about';
-@import 'components/login-register';
+@import 'settings/variables';
 
 body {
     font-family: $font-base;

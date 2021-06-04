@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import Heading from '../Heading'
+import Heading from '../../../components/DecorationHeading'
 import {Link} from 'react-router-dom';
+
+import "./steps.scss"
 // import { HashLink } from 'react-router-hash-link';
 
 

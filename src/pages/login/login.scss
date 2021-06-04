@@ -1,9 +1,10 @@
-.login-container,
-.register-container {
+@import "../../scss/settings/variables";
+
+.login-container {
     margin-top: 100px;
 }
 
-.login-form-container{
+.login-form-container {
     background-color: $background-grey;
     width:300px;
     height:fit-content;
@@ -28,8 +29,7 @@
 
 } 
 
-.login-container ul,
-.register-container ul {
+.login-container ul {
     justify-content: center;
     li {
         margin: 0;

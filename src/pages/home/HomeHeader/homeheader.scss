@@ -1,8 +1,10 @@
+@import "../../../scss/settings/variables";
+
 .homeheader-container {
     display:flex;
     flex-direction: column;
     height: 963px;
-    background: transparent url('/assets/Hero Image.png') right 50vw bottom 0% no-repeat padding-box fixed;
+    background: transparent url('Hero Image.png') right 50vw bottom 0% no-repeat padding-box fixed;
     // * {
     //     border:1px solid red;
     // }
@@ -66,5 +68,11 @@
         margin-left:25px;
         margin-right:25px;
     }
+}
+
+.header-heading-container {
+    margin-top:150px;
+    padding-right:140px;
+    align-self: flex-end;
 }
 

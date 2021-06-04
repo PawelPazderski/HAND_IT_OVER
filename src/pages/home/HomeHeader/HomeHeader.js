@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import NavBottom from '../NavBottom'
-import NavTop from '../NavTop'
-import Heading from '../Heading'
+import NavBottom from '../../../components/NavBottom'
+import NavTop from '../../../components/NavTop'
+import Heading from '../../../components/DecorationHeading'
 import {Link} from 'react-router-dom'
+
+import './homeheader.scss'
 
 
 const HomeHeader = () => {

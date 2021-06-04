@@ -1,26 +1,26 @@
 import React, {useState, useEffect} from 'react'
-import Heading from '../Heading'
-import NavTop from '../NavTop'
-import NavBottom from '../NavBottom'
+import Heading from '../../components/DecorationHeading'
+import NavTop from '../../components/NavTop'
+import NavBottom from '../../components/NavBottom'
 import {Link} from 'react-router-dom';
 // import { HashLink } from 'react-router-hash-link';
 
+import './login.scss'
 
-const Register = () => {
+
+const Login = () => {
 
     return (
     <>
         <NavTop />
         <NavBottom />
-        <div className="register-container">
-           <Heading title="Załóż konto"/>
+        <div className="login-container">
+           <Heading title="Zaloguj się"/>
            <div className="login-form-container">
                <form className="login-form">
                    <label>Email</label>
                    <input type="email"></input>
                    <label>Hasło</label>
-                   <input type="password"></input>
-                   <label>Powtórz hasło</label>
                    <input type="password"></input>
                </form>
            </div>
@@ -36,4 +36,4 @@ const Register = () => {
     </>)
 }
     
-export default Register
+export default Login
