@@ -1,8 +1,9 @@
 @import "../../../scss/settings/variables";
 
 .whowehelp-container{
-    height: 850px;
+    height: fit-content;
     padding-top: 50px;
+    padding-bottom: 50px;
     background-color: antiquewhite;
     // * {
     //     border:1px solid red;
@@ -11,5 +12,26 @@
         margin-top:50px;
         display: flex;
         justify-content: center;
+    }
+    h3 {
+        margin: 40px auto;
+        width:40%;
+        text-align: center;
+        font: normal normal normal 22px/30px Open Sans;
+        letter-spacing: 0px;
+        color: $primary-grey;
+    }
+    ul {
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+        li {
+            border-bottom: 1px solid $primary-grey;
+        }
+        li:last-child {
+            border:none;
+        }
     }
 }

@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import DecorationHeading from '../../../components/DecorationHeading'
 import {Link} from 'react-router-dom';
 
+import HomeListElement from '../../../components/HomeListElement'
+
+
 import './whowehelp.scss'
 // import { HashLink } from 'react-router-hash-link';
 
@@ -13,7 +16,7 @@ const HomeWhoWeHelp = () => {
     const [ fundations, setFundations ] = useState([])
     const [ organizations, setOrganizations ] = useState([])
     const [ local, setLocal ] = useState([])
-    const [current, setCurrent] = useState("fundations")
+    const [ current, setCurrent ] = useState("fundations")
 
     useEffect(() => {
         fetch(MENU_URL_fundations)
@@ -57,10 +60,20 @@ const HomeWhoWeHelp = () => {
         <div id="komu-pomagamy" className="whowehelp-container">
             <DecorationHeading title="Komu pomagamy?" />
             <div className="organization-buttons">
-                <button>Fundacjom</button>
-                <button>Organizacjom pozarządowym</button>
-                <button>Lokalnym zbiórkom</button>
+                <button onClick={() => setCurrent("fundations")}>Fundacjom</button>
+                <button onClick={() => setCurrent("organizations")}>Organizacjom pozarządowym</button>
+                <button onClick={() => setCurrent("local")}>Lokalnym zbiórkom</button>
             </div>
+            
+            {(current === "fundations" && fundations.length) && <h3>{fundations[0].description}</h3>}
+            {(current === "organizations" && organizations.length) && <h3>{organizations[0].description}</h3>}
+            {(current === "local" && local.length) && <h3>{local[0].description}</h3>}
+            
+            <ul>
+                {current === "fundations" && fundations.map((el,i) => <li key={i}><HomeListElement type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
+                {current === "organizations" && organizations.map((el,i) => <li key={i}><HomeListElement type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
+                {current === "local" && local.map((el,i) => <li key={i}><HomeListElement type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
+            </ul>
         
         </div>
     </>)
