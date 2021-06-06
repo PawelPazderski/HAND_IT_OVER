@@ -1,0 +1,23 @@
+@import "../../scss/settings/variables";
+
+.home-pagination {
+    margin: 0 auto;
+    flex-direction: row!important;
+    .home-page-item{
+        border-bottom: none;
+        margin: 0 5px;
+    }
+    
+    .home-page-item .page-link{
+        color:$primary-grey;
+        background: none;
+        border: 1px solid transparent;
+        &:active{
+            border:1px solid $primary-grey!important;
+        }
+        &:focus{
+            border:1px solid $primary-grey!important;
+            box-shadow: none;
+        }
+    }
+}
