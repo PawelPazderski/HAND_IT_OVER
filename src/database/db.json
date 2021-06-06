@@ -27,7 +27,7 @@
             "type": "Fundacja",
             "name": "Marysieńka",
             "goal": "Pomoc dla osób z niepełnosprawnością.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            "products": "ubrania, sprzęt AGD, meble"
         },
         {
             "id": 5,
@@ -41,7 +41,7 @@
             "type": "Fundacja",
             "name": "Damy radę",
             "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            "products": "ubrania, jedzenie, sprzęt AGD, meble"
         },
         {
             "id": 7,
@@ -55,14 +55,14 @@
             "type": "Fundacja",
             "name": "Dla Was od nas",
             "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD"
         },
         {
             "id": 9,
             "type": "Fundacja",
             "name": "Nie jesteś sam",
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            "products": "ubrania, jedzenie, sprzęt AGD, meble"
         }
     ],
     "local": [
@@ -124,7 +124,7 @@
             "type": "Organizacja",
             "name": "Lorem Ipsum 5",
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            "products": "ubrania, sprzęt AGD, meble"
         },
         {
             "id": 6,
