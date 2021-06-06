@@ -4,13 +4,12 @@ import React from 'react'
 import './pagination.scss'
 
 const HomePagination = ( {itemPerPage, totalItems, paginate} ) => {
-
     const items = []
-
     let active = 1
+
     for(let number = 1; number<=Math.ceil(totalItems / itemPerPage); number++){
             items.push(
-                <li key={number} className="home-page-item">
+                <li key={number} className={ active === number ? "home-page-item active" : "home-page-item"}>
                         <a onClick={(e)=>{
                             e.preventDefault()
                             paginate(number)}} href="!#" className="page-link" >

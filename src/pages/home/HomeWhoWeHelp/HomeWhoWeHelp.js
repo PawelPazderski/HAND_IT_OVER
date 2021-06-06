@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import DecorationHeading from '../../../components/DecorationHeading'
 import HomeWhoWeHelpList from '../HomeWhoWeHelpList'
-import HomeWhoWeHelpPagination from './HomeWhoWeHelp'
 import HomePagination from '../../../components/Pagination/HomePagination'
 import {Link} from 'react-router-dom';
 
@@ -23,7 +22,7 @@ const HomeWhoWeHelp = () => {
     // const [ totalItems, setTotalItems ] = useState(0)
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [itemPerPage, setItemPerPage] = useState(3)
+    const [itemPerPage] = useState(3)
 
     useEffect(() => {
         fetch(MENU_URL_fundations)
@@ -60,8 +59,6 @@ const HomeWhoWeHelp = () => {
             .then(local => setLocal(local))
             .catch(err => console.log(err))
     },[])
-
-    
 
     //Fundations
     const indexOfLastFundation = currentPage * itemPerPage

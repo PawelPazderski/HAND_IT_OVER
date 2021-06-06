@@ -23,7 +23,7 @@ const NavBottom = () => {
                    <HashLink className="navbottom-link" to="/#komu-pomagamy">Fundacje i organizacje</HashLink>
                </li>
                <li>
-                   <HashLink className="navbottom-link" to="/#">Kontakt</HashLink>
+                   <HashLink className="navbottom-link" to="/#kontakt">Kontakt</HashLink>
                </li>
            </ul>
 

@@ -1,0 +1,35 @@
+@import "../../../scss/settings/variables";
+
+.home-footer-container {
+    margin: 0 auto;
+    height: 50px;
+    width:80%;
+    text-align: center;
+    color:$primary-grey;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    
+}
+
+.footer-icons {
+    position: absolute;
+    right: 0;
+    display: flex;
+    
+}
+
+.fb-icon {
+    height: 25px;
+    width:25px;
+    margin-right:25px;
+    background: transparent url('./assets/Facebook.svg') no-repeat center/contain;
+}
+
+.instagram-icon {
+    height:25px;
+    width:25px;
+    background: transparent url('./assets/Instagram.svg') no-repeat center/contain;
+}

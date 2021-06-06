@@ -1,0 +1,30 @@
+@import "../../../scss/settings/variables";
+
+.home-contact-container {
+    min-height: 80vh;
+    background: linear-gradient(90deg, rgba(248,248,249,0.7) 31%, rgba(247,247,249,0.95) 80%, rgba(255,255,255,1) 100%), url('./Background-Contact-Form.jpg') no-repeat left/contain;
+    // * {
+    //     border:1px solid red;
+    // }
+
+    .home-contact-boxes {
+        display:flex;
+        height:90%;
+    }
+
+    .home-contact-box-left,
+    .home-contact-box-right {
+        width: 50%;
+    }
+
+    .home-contact-box-right {
+        padding-top:150px;
+
+        .contact-form {
+            margin-top:50px;
+            margin-bottom:50px;
+            min-height: 300px;
+            border: 1px solid red;
+        }
+    }
+}

@@ -5,7 +5,7 @@
             "type": "Fundacja",
             "name": "Dbam o Zdrowie",
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+            "products": "ubrania, jedzenie, sprzęt AGD małe i duże, meble",
             "description": "W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
         },
         {
@@ -13,14 +13,14 @@
             "type": "Fundacja",
             "name": "Dla dzieci",
             "goal": "Pomoc dzieciom z ubogich rodzin.",
-            "products": "ubrania, meble, zabawki"
+            "products": "ubrania, meble, zabawki, AGD, chemia"
         },
         {
             "id": 3,
             "type": "Fundacja",
             "name": "Bez domu",
             "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce"
+            "products": "ubrania, jedzenie, ciepłe koce, AGD"
         },
         {
             "id": 4,
@@ -71,22 +71,22 @@
             "type": "Zbiórka",
             "name": "Po sąsiedzku",
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "products": "ubrania, jedzenie, kosmetyki, sprzęt AGD małe i duże, meble, zabawki",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis nostrud exercitation."
         },
         {
             "id": 2,
             "type": "Zbiórka",
             "name": "Nasz fyrtel",
             "goal": "Pomoc dzieciom z ubogich rodzin.",
-            "products": "ubrania, meble, zabawki"
+            "products": "ubrania, meble, zabawki, chemia, kosmetyki"
         },
         {
             "id": 3,
             "type": "Zbiórka",
             "name": "Ho no tu",
             "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce"
+            "products": "ubrania, jedzenie, ciepłe koce, kosmetyki, chemia"
         }
     ],
     "organizations": [
@@ -96,7 +96,7 @@
             "name": "Lorem Ipsum 1",
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
             "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
-            "description": "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel venenatis nibh. Curabitur nec rhoncus tellus."
         },
         {
             "id": 2,
