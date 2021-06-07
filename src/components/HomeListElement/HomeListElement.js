@@ -2,7 +2,7 @@ import React from 'react'
 
 import './homelistelement.scss'
 
-const HomeListElement = ({type, name, goal, products}) => {
+const HomeListElement = ({id,type, name, goal, products}) => {
   
 
     return (
@@ -10,7 +10,7 @@ const HomeListElement = ({type, name, goal, products}) => {
         <table className="home-list-table">
             <tr className="home-list-element">
                     <th>
-                        <h1>{type} "{name}"</h1>
+                        <h1>{id}. {type} "{name}"</h1>
                         <h4>{goal}</h4>
                     </th>
                     <th>

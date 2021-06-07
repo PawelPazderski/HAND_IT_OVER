@@ -10,9 +10,9 @@ const HomeWhoWeHelpList = ({currentList, fundations, organizations, local }) => 
     return (
         <>
             <ul>
-                {((currentList === "fundations") && fundations ) && fundations.map((el,i) => <li key={i}><HomeListElement type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
-                {((currentList === "organizations") && organizations ) && organizations.map((el,i) => <li key={i}><HomeListElement type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
-                {((currentList === "local") && local ) && local.map((el,i) => <li key={i}><HomeListElement type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
+                {((currentList === "fundations") && fundations ) && fundations.map((el,i) => <li key={i}><HomeListElement id={el.id} type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
+                {((currentList === "organizations") && organizations ) && organizations.map((el,i) => <li key={i}><HomeListElement id={el.id} type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
+                {((currentList === "local") && local ) && local.map((el,i) => <li key={i}><HomeListElement id={el.id} type={el.type} name={el.name} goal={el.goal} products={el.products} /></li>)}
             </ul>
         </>
     )

@@ -68,7 +68,7 @@
     "local": [
         {
             "id": 1,
-            "type": "Zbiórka",
+            "type": "Zbiórka lokalna",
             "name": "Po sąsiedzku",
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
             "products": "ubrania, jedzenie, kosmetyki, sprzęt AGD małe i duże, meble, zabawki",
@@ -76,14 +76,14 @@
         },
         {
             "id": 2,
-            "type": "Zbiórka",
+            "type": "Zbiórka lokalna",
             "name": "Nasz fyrtel",
             "goal": "Pomoc dzieciom z ubogich rodzin.",
             "products": "ubrania, meble, zabawki, chemia, kosmetyki"
         },
         {
             "id": 3,
-            "type": "Zbiórka",
+            "type": "Zbiórka lokalna",
             "name": "Ho no tu",
             "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
             "products": "ubrania, jedzenie, ciepłe koce, kosmetyki, chemia"

@@ -24,7 +24,47 @@
             margin-top:50px;
             margin-bottom:50px;
             min-height: 300px;
-            border: 1px solid red;
+            padding: 0 100px;
+
+            form {
+                display:flex;
+                flex-direction: column;
+                button {
+                    color: $primary-grey;
+                    align-self:flex-end;
+                    background-color: transparent;
+                    border-radius: 0;
+                    border: 1px solid $primary-grey;
+                    padding: 5px 25px;
+                }
+            }
+
+            .form-label {
+                font: normal normal 600 16px/35px $font-base;
+                letter-spacing: 0px;
+                color: $primary-grey;
+            }
+
+            .form-control {
+                font: normal normal normal 14px/24px $font-base;
+                letter-spacing: 0px;
+                color: $primary-grey;
+                opacity: 1;
+                letter-spacing: 0px;
+                color: #3C3C3C;
+                background-color: transparent;
+                border-radius: 0;
+                border:none;
+                border-bottom: 1px solid $primary-grey;
+                padding-left: 0;
+                overflow: hidden;
+
+                &::placeholder {
+                    color: rgba($color: $secondary-grey, $alpha: .5);
+                    
+
+                }
+            }
         }
     }
 }
