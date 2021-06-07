@@ -61,9 +61,20 @@
 
                 &::placeholder {
                     color: rgba($color: $secondary-grey, $alpha: .5);
-                    
-
                 }
+            }
+
+            .form-control-alert {
+                border-bottom: 1px solid red;
+            }
+
+            .contact-form-alert {
+                font: normal normal 700 12px/24px $font-base;
+                color: red;
+            }
+
+            .d-none {
+                display: none;
             }
         }
     }
