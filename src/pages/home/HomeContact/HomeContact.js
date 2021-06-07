@@ -38,7 +38,6 @@ const HomeContact = () => {
         return re.test(name)
     }
 
-    // /(.*[a-zA-Z]){2}/i
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -49,9 +48,6 @@ const HomeContact = () => {
         const messageAlert = document.querySelector(".contact-form-message-alert")
         const messageInput = document.querySelector(".contact-message-input")
         const errors = []
-
-        // validateName(name)
-        // validateEmail(email)
 
         if ((validateName(name) === false) || !name.length || name.length < 2) {
             errors.push('Błędne imię')
@@ -75,8 +71,7 @@ const HomeContact = () => {
             errors.length && errors.filter(prev => prev !== 'Błędny email')
         }
         
-
-        if (message.length <= 120) {
+        if (message.length < 120) {
             errors.push('Za krótka wiadomość')
             messageAlert.classList.remove("d-none")
             messageInput.classList.add("form-control-alert")
@@ -116,24 +111,13 @@ const HomeContact = () => {
                                 <Form.Group controlId="formGridAddress1">
                                     <Form.Label>Wpisz swoją wiadomość</Form.Label>
                                     <Form.Control className="contact-message-input" as="textarea" rows={3} value={message} onChange={handleMessageChange} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-                                    <h6 className="contact-form-alert contact-form-message-alert d-none">Wiadomość musi mieć conajmniej 120 znaków!</h6>
+                                    <h6 className="contact-form-alert contact-form-message-alert d-none">Wiadomość musi mieć conajmniej 120 znaków! (Brakuje {120 - message.length} znaków.)</h6>
                                 </Form.Group>
                                 <Button variant="primary" type="submit">
                                     Wyślij
                                 </Button>
                         </Form>
-                            {/* <form className="contact-form">
-                                <div>
-                                    <label>Wpisz swoje imię</label>
-                                    <br/>
-                                    <input type="text"></input>
-                                </div>
-                                <div>
-                                    <label>Podaj swój email</label>
-                                    <br/>
-                                    <input type="email"></input>
-                                </div>
-                            </form> */}
+                            
                         </div>
                         
                     </div>
