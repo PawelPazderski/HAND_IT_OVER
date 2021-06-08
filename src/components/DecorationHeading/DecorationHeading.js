@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom';
+import React from 'react'
 
 import "./decorationheading.scss"
-// import { HashLink } from 'react-router-hash-link';
+
 
 
 const Heading = ({title, title2}) => {

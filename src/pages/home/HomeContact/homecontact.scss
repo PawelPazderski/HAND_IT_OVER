@@ -21,6 +21,17 @@
         padding-top:100px;
         padding-bottom:50px;
 
+        .contact-form-success {
+            margin-top: 25px;
+            text-align: center;
+            font: normal normal 700 16px/24px $font-base;
+            color: green;
+        }
+
+        .d-none {
+            display: none;
+        }
+
         .contact-form {
             margin-top:50px;
             margin-bottom:50px;

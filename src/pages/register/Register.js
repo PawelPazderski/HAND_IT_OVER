@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
 import {Link} from 'react-router-dom';
-// import { HashLink } from 'react-router-hash-link';
 
 import './register.scss'
 

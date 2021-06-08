@@ -2,13 +2,9 @@ import React, {useState, useEffect} from 'react'
 import DecorationHeading from '../../../components/DecorationHeading'
 import HomeWhoWeHelpList from '../HomeWhoWeHelpList'
 import HomePagination from '../../../components/Pagination/HomePagination'
-import {Link} from 'react-router-dom';
 
-import HomeListElement from '../../../components/HomeListElement'
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './whowehelp.scss'
-// import { HashLink } from 'react-router-hash-link';
+
 
 const MENU_URL_fundations = "http://localhost:3001/fundations";
 const MENU_URL_local = "http://localhost:3001/local";
