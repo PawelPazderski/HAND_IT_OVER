@@ -166,7 +166,7 @@ const HomeContact = () => {
 
                                 <Form.Group controlId="formGridAddress1">
                                     <Form.Label>Wpisz swoją wiadomość</Form.Label>
-                                    <Form.Control className="contact-message-input" as="textarea" rows={3} value={message} onChange={handleMessageChange} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+                                    <Form.Control className="contact-message-input" as="textarea" rows={3} value={message} onChange={handleMessageChange} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco." />
                                     <h6 className="contact-form-alert contact-form-message-alert d-none">Wiadomość musi mieć conajmniej 120 znaków! Obecnie: {message.length} znaków.)</h6>
                                 </Form.Group>
                                 <Button variant="primary" type="submit">

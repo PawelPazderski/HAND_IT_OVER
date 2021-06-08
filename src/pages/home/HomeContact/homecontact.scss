@@ -69,10 +69,14 @@
                 border:none;
                 border-bottom: 1px solid $primary-grey;
                 padding-left: 0;
-                overflow: hidden;
+                overflow: auto;
+                resize: none;
 
                 &::placeholder {
                     color: rgba($color: $secondary-grey, $alpha: .5);
+                }
+                &:focus{
+                    box-shadow: none; 
                 }
             }
 
