@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import DecorationHeading from '../../../components/DecorationHeading'
 import "./homecontact.scss"
 import HomeFooter from '../HomeFooter'
@@ -6,34 +6,55 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 
+const regName = /^[A-ZĄĘŁÓŻŹŚĆa-ząęłóżźćś]+$/
+const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/
 
 const HomeContact = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [message, setMessage] = useState("")
-    const [contact, setContact] = useState({})
+    const [nameError, setNameError] = useState(false)
+    const [emailError, setEmailError] = useState(false)
+    const [messageError, setMessageError] = useState(false)
     const [sendMessage, setSendMessage] = useState(false)
 
+    const preventEnter = (e) => {
+        if(e.key === 'Enter'){
+            e.preventDefault()
+          }
+    }
+
     const handleNameChange = (e) => {
+        e.preventDefault();
         setName(e.target.value)
+        console.log(regName.test(e.target.value))
+            if ((regName.test(e.target.value)) === true && e.target.value.length >= 2) {
+                setNameError(false)
+            } else {
+                setNameError(true)
+                return
+            }
     }
 
     const handleEmailChange = (e) => {
+        e.preventDefault();
         setEmail(e.target.value)
+        console.log(regName.test(e.target.value))
+            if ((regEmail.test(e.target.value)) === true) {
+                setEmailError(false)
+            } else {
+                setEmailError(true)
+                return
+            }
     }
 
-    const handleMessageChange = (e) => {
+    const handleChangeMessage = (e) => {
         setMessage(e.target.value)
-    }
-
-    const validateEmail = (email) => {
-        const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return reg.test(email)
-    }
-    
-    const validateName = (name) => {
-        const reg = /^[A-ZĄĘŁÓŻŹŚĆa-ząęłóżźćś]+$/;
-        return reg.test(name)
+            if (e.target.value.length < 120) {
+                setMessageError(true)
+            } else {
+                setMessageError(false) 
+            }
     }
 
     const clearForm = () => {
@@ -42,102 +63,38 @@ const HomeContact = () => {
         setMessage("")
     }
 
-    const sendForm = () => {
-        if (sendMessage) {
-            fetch("https://fer-api.coderslab.pl/v1/portfolio/contact", {
-            method: "POST",
-            body: JSON.stringify(contact),
-            headers: {
-                "Content-Type": "application/json"
-            }
-            });
-            setSendMessage(false)
-        } 
+    const hideSuccess = () => {
+        setSendMessage(false)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const formSuccess = document.querySelector(".contact-form-success")
-        const nameAlert = document.querySelector(".contact-form-name-alert")
-        const nameInput = document.querySelector(".contact-name-input")
-        const emailAlert = document.querySelector(".contact-form-email-alert")
-        const emailInput = document.querySelector(".contact-email-input")
-        const messageAlert = document.querySelector(".contact-form-message-alert")
-        const messageInput = document.querySelector(".contact-message-input")
-        const errors = []
-
-        const hideSuccess = () => {
-            formSuccess.classList.add("d-none")
-        }
-
-        if ((validateName(name) === false) || !name.length || name.length < 2) {
-            errors.push('Błędne imię')
-            nameAlert.classList.remove("d-none")
-            nameInput.classList.add("form-control-alert")
-            
-        } else {
-            nameAlert.classList.add("d-none")
-            nameInput.classList.remove("form-control-alert")
-            errors.length && errors.filter(prev => prev !== 'Błędne imię')
-            setContact(prev => {
-                return {
-                ...prev,
-                name: `${name}`
-                }
-            })
-            
-        }
-
-        if (validateEmail(email) === false) {
-            errors.push('Błędny email')
-            emailAlert.classList.remove("d-none")
-            emailInput.classList.add("form-control-alert")
-            
-        } else {
-            emailAlert.classList.add("d-none")
-            emailInput.classList.remove("form-control-alert")
-            errors.length && errors.filter(prev => prev !== 'Błędny email')
-            setContact(prev => {
-                return {
-                ...prev,
-                email: `${email}`
-                }
-            })
-        }
-        
-        if (message.length < 120) {
-            errors.push('Za krótka wiadomość')
-            messageAlert.classList.remove("d-none")
-            messageInput.classList.add("form-control-alert")
-        } else {
-            messageAlert.classList.add("d-none")
-            messageInput.classList.remove("form-control-alert")
-            errors.length && errors.filter(prev => prev !== 'Za krótka wiadomość')
-            setContact(prev => {
-                return {
-                ...prev,
+        if (name.length && email.length && message.length && !nameError && !emailError && !messageError) {
+            fetch("https://fer-api.coderslab.pl/v1/portfolio/contact", {
+            method: "POST",
+            body: JSON.stringify({
+                name: `${name}`,
+                email: `${email}`,
                 message: `${message}`
-                }
-            })
-        }
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+            });
 
-        if (errors.length) {
-            formSuccess.classList.add("d-none")
-            return
-        } else {
+            clearForm()
             setSendMessage(true)
-            
+            setTimeout(hideSuccess, 3000)
+        } else {
+            alert("Wszystkie pola muszą być poprawnie wypełnione!")
+            return
         }
         
-        formSuccess.classList.remove("d-none")
-        setTimeout(hideSuccess, 3000)
+        //use Ref
+        //lepiej warunkowo na bazie stanu
+        //queryselektory spowalniają
     }
-
-    useEffect(()=> {
-        sendForm()
-        clearForm()
-    },[sendMessage])
 
     return (
         <>
@@ -147,27 +104,44 @@ const HomeContact = () => {
                </div>
                     <div className="home-contact-box-right">
                         <DecorationHeading title="Skontaktuj się z nami"/>
-                        <h6 className="contact-form-alert contact-form-success d-none">Wiadomość została wysłana!<br/>Wkrótce się z Tobą skontaktujemy.</h6>
+                        <h6 className={ sendMessage ? "contact-form-alert contact-form-success" : "contact-form-alert contact-form-success d-none"}>Wiadomość została wysłana!<br/>Wkrótce się z Tobą skontaktujemy.</h6>
                         <div className="contact-form">
                         <Form onSubmit={handleSubmit}>
                                 <Form.Row>
                                     <Form.Group as={Col} controlId="formGridEmail">
                                     <Form.Label>Wpisz swoje imię</Form.Label>
-                                    <Form.Control className="contact-name-input" type="text" value={name} onChange={handleNameChange} placeholder="Krzysztof" />
-                                    <h6 className="contact-form-alert contact-form-name-alert d-none">Podane imię jest nieprawidłowe!</h6>
+                                    <Form.Control
+                                        onKeyPress={preventEnter}
+                                        className={ nameError ? "contact-name-input form-control-alert" : "contact-name-input"} 
+                                        type="text" value={name} 
+                                        onChange={handleNameChange} 
+                                        placeholder="Krzysztof" />
+                                        <h6 className={ nameError ? "contact-form-alert contact-form-name-alert" : "contact-form-alert contact-form-name-alert d-none"}>Podane imię jest nieprawidłowe!</h6>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridPassword">
                                     <Form.Label>Podaj swój email</Form.Label>
-                                    <Form.Control className="contact-email-input" type="text" placeholder="abc@xyz.pl" value={email} onChange={handleEmailChange}/>
-                                    <h6 className="contact-form-alert contact-form-email-alert d-none">Podany email jest niepoprawny!</h6>
+                                    <Form.Control 
+                                        onKeyPress={preventEnter}
+                                        className={ emailError ? "contact-email-input form-control-alert" : "contact-email-input"} 
+                                        type="text" 
+                                        placeholder="abc@xyz.pl" 
+                                        value={email} 
+                                        onChange={handleEmailChange}/>
+                                        <h6 className={ emailError ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
                                     </Form.Group>
                                 </Form.Row>
 
                                 <Form.Group controlId="formGridAddress1">
                                     <Form.Label>Wpisz swoją wiadomość</Form.Label>
-                                    <Form.Control className="contact-message-input" as="textarea" rows={3} value={message} onChange={handleMessageChange} placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco." />
-                                    <h6 className="contact-form-alert contact-form-message-alert d-none">Wiadomość musi mieć conajmniej 120 znaków! Obecnie: {message.length} znaków.)</h6>
+                                    <Form.Control 
+                                        className={ messageError ? "contact-message-input form-control-alert" : "contact-message-input"}
+                                        as="textarea" rows={3} value={message} 
+                                        onChange={handleChangeMessage} 
+                                        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco." />
+                                        <h6 className={ messageError ? "contact-form-alert contact-form-message-alert" : "contact-form-alert contact-form-message-alert d-none"}>Wiadomość musi mieć conajmniej 120 znaków! (Obecnie: {message.length} znaków.)</h6>
                                 </Form.Group>
                                 <Button variant="primary" type="submit">
                                     Wyślij
@@ -178,7 +152,6 @@ const HomeContact = () => {
                         
                     </div>
                </div>
-            
             <div className="footer-container">
                 <HomeFooter />
             </div>
