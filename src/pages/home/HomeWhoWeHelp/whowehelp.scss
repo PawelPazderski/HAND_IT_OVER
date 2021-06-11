@@ -44,9 +44,7 @@
         justify-content: center;
         align-items: center;
         width: 80vw;
-        .active{
-            border: 1px solid rgba($color:$secondary-grey, $alpha: 0.2);
-        }
+        
         li {
             border-bottom: 1px solid $primary-grey;
             margin:0;
@@ -56,4 +54,7 @@
         }
     }
 }
+
+
+
 

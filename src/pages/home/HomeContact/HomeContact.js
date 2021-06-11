@@ -21,7 +21,7 @@ const HomeContact = () => {
     const preventEnter = (e) => {
         if(e.key === 'Enter'){
             e.preventDefault()
-          }
+        }
     }
 
     const handleNameChange = (e) => {
@@ -90,10 +90,6 @@ const HomeContact = () => {
             alert("Wszystkie pola muszą być poprawnie wypełnione!")
             return
         }
-        
-        //use Ref
-        //lepiej warunkowo na bazie stanu
-        //queryselektory spowalniają
     }
 
     return (
@@ -101,8 +97,8 @@ const HomeContact = () => {
         <div id="kontakt" className="home-contact-container">
             <div className="home-contact-boxes">
                 <div className="home-contact-box-left">
-               </div>
-                    <div className="home-contact-box-right">
+                </div>
+                <div className="home-contact-box-right">
                         <DecorationHeading title="Skontaktuj się z nami"/>
                         <h6 className={ sendMessage ? "contact-form-alert contact-form-success" : "contact-form-alert contact-form-success d-none"}>Wiadomość została wysłana!<br/>Wkrótce się z Tobą skontaktujemy.</h6>
                         <div className="contact-form">
@@ -138,25 +134,20 @@ const HomeContact = () => {
                                         className={ messageError ? "contact-message-input form-control-alert" : "contact-message-input"}
                                         as="textarea" rows={3} value={message} 
                                         onChange={handleChangeMessage} 
-                                        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco." />
+                                        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco." />
                                         <h6 className={ messageError ? "contact-form-alert contact-form-message-alert" : "contact-form-alert contact-form-message-alert d-none"}>Wiadomość musi mieć conajmniej 120 znaków! (Obecnie: {message.length} znaków.)</h6>
                                 </Form.Group>
                                 <Button variant="primary" type="submit">
                                     Wyślij
                                 </Button>
                         </Form>
-                            
                         </div>
-                        
                     </div>
-               </div>
-            <div className="footer-container">
-                <HomeFooter />
+                </div>
+                <div className="footer-container">
+                    <HomeFooter />
+                </div>
             </div>
-            
-        </div>
         </>
     )
 }

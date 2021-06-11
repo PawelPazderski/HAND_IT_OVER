@@ -120,6 +120,7 @@ const HomeWhoWeHelp = () => {
                 itemPerPage={itemPerPage}
                 totalItems={getList()}
                 paginate={paginate}
+                currentList={currentList}
             />
         </div>
     </>)

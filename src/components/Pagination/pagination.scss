@@ -1,11 +1,16 @@
 @import "../../scss/settings/variables";
 
-.home-pagination {
+.home-pagination-container .home-pagination {
     margin: 0 auto;
     flex-direction: row!important;
     .home-page-item{
         border-bottom: none;
         margin: 0 5px;
+        border: 1px solid transparent;
+    }
+
+    .active-page {
+        border: 1px solid $secondary-grey;
     }
     
     .home-page-item .page-link{
@@ -16,8 +21,9 @@
             border:1px solid $primary-grey!important;
         }
         &:focus{
-            border:1px solid $primary-grey!important;
             box-shadow: none;
         }
     }
 }
+
+
