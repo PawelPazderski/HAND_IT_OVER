@@ -35,7 +35,7 @@ const HomeContact = () => {
             }
     }
 
-    const handleChangeEmail = (e) => {
+    const handleEmailChange = (e) => {
         const newValueIsValid = !e.target.validity.patternMismatch;
 
         if (emailError && newValueIsValid) {
@@ -76,20 +76,20 @@ const HomeContact = () => {
 
         if (name.length && email.length && message.length && !nameError && !emailError && !messageError) {
             fetch("https://fer-api.coderslab.pl/v1/portfolio/contact", {
-            method: "POST",
-            body: JSON.stringify({
-                name: `${name}`,
-                email: `${email}`,
-                message: `${message}`
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-            });
+                method: "POST",
+                body: JSON.stringify({
+                    name: `${name}`,
+                    email: `${email}`,
+                    message: `${message}`
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+                });
 
             clearForm()
             setSendMessage(true)
-            setTimeout(hideSuccess, 3000)
+            setTimeout(hideSuccess, 4000)
         } else {
             alert("Wszystkie pola muszą być poprawnie wypełnione!")
             return
@@ -127,11 +127,10 @@ const HomeContact = () => {
                                         type="text" 
                                         placeholder="abc@xyz.pl" 
                                         value={email} 
-                                        onChange={handleChangeEmail}
+                                        onChange={handleEmailChange}
                                         onBlur={validateEmail}
                                         pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
                                         />
-                                        
                                         <h6 className={ emailError ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
                                     </Form.Group>
                                 </Form.Row>

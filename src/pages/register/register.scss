@@ -16,6 +16,7 @@
     font: normal normal 600 16px/50px $font-base;
     letter-spacing: 0px;
     color: $primary-grey;
+
     .register-form {
         display: flex;
         flex-direction: column;
@@ -23,16 +24,16 @@
             background-color: transparent;
             border:none;
             border-bottom: 2px solid rgba($color: $secondary-grey, $alpha: 0.4);
-            
         }
     }
-
-} 
+}
 
 .register-container ul {
     justify-content: center;
+
     li {
         margin: 0;
+
         .bottom-link{
             font: normal normal normal 14px/85px $font-base;
             padding: 5px 10px;
@@ -40,6 +41,7 @@
             text-decoration: none;
             border: 1px solid transparent;
             color: $secondary-grey;
+            
             &:hover{
                 border: 1px solid $primary-grey;
             }

@@ -6,8 +6,6 @@ import HomeSteps from '../HomeSteps'
 import HomeWhoWeHelp from '../HomeWhoWeHelp'
 import HomeContact from '../HomeContact'
 
-
-
 const Home = () => {
 
     return (

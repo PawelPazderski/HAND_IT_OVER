@@ -16,21 +16,22 @@
     font: normal normal 600 16px/55px $font-base;
     letter-spacing: 0px;
     color: $primary-grey;
+    
     .login-form {
         display: flex;
         flex-direction: column;
+
         input {
             background-color: transparent;
             border:none;
             border-bottom: 2px solid rgba($color: $secondary-grey, $alpha: 0.4);
-            
         }
     }
-
 } 
 
 .login-container ul {
     justify-content: center;
+
     li {
         margin: 0;
         .bottom-link{
@@ -65,6 +66,7 @@
     font: normal normal 700 12px/24px $font-base;
     color: rgba($color: $secondary-grey, $alpha: 0.4);
     text-align: end;
+
     &:hover {
         cursor: pointer;
         color: rgba($color: $secondary-grey, $alpha: 0.8);
