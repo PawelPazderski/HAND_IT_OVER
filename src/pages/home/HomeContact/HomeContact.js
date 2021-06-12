@@ -36,16 +36,33 @@ const HomeContact = () => {
             }
     }
 
-    const handleEmailChange = (e) => {
-        e.preventDefault();
+    // const handleEmailChange = (e) => {
+    //     e.preventDefault();
+    //     setEmail(e.target.value)
+    //     console.log(regName.test(e.target.value))
+    //         if ((regEmail.test(e.target.value)) === true) {
+    //             setEmailError(false)
+    //         } else {
+    //             setEmailError(true)
+    //             return
+    //         }
+    // }
+
+    const handleChangeEmail = (e) => {
+        const newValueIsValid = !e.target.validity.patternMismatch;
+
+        if (emailError && newValueIsValid) {
+                setEmailError(false);
+        }
         setEmail(e.target.value)
-        console.log(regName.test(e.target.value))
-            if ((regEmail.test(e.target.value)) === true) {
+    }
+
+    const validateEmail = (e) => {
+        if (e.target.validity.patternMismatch) {
+            setEmailError(true)
+        } else {
                 setEmailError(false)
-            } else {
-                setEmailError(true)
-                return
-            }
+                }
     }
 
     const handleChangeMessage = (e) => {
@@ -123,7 +140,11 @@ const HomeContact = () => {
                                         type="text" 
                                         placeholder="abc@xyz.pl" 
                                         value={email} 
-                                        onChange={handleEmailChange}/>
+                                        onChange={handleChangeEmail}
+                                        onBlur={validateEmail}
+                                        pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
+                                        />
+                                        
                                         <h6 className={ emailError ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
                                     </Form.Group>
                                 </Form.Row>

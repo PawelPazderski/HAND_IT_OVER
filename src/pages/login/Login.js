@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
@@ -6,8 +6,53 @@ import {Link} from 'react-router-dom';
 
 import './login.scss'
 
+const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/
 
 const Login = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
+    const [emailErr, setEmailErr] = useState(false)
+    const [passwordErr, setPasswordErr] = useState(false)
+
+    const handleChangePassword = (e) => {
+        const newValueIsValid = !e.target.validity.patternMismatch;
+
+        if (passwordErr && newValueIsValid) {
+                setPasswordErr(false);
+        }
+        setPassword(e.target.value)
+    }
+
+    const handleChangeEmail = (e) => {
+        const newValueIsValid = !e.target.validity.patternMismatch;
+
+        if (emailErr && newValueIsValid) {
+                setEmailErr(false);
+        }
+        setEmail(e.target.value)
+    }
+
+    const validatePassword = (e) => {
+        if (e.target.validity.patternMismatch) {
+            setPasswordErr(true)
+        } else {
+                setPasswordErr(false)
+                }
+    }
+
+    const validateEmail = (e) => {
+        if (e.target.validity.patternMismatch) {
+            setEmailErr(true)
+        } else {
+                setEmailErr(false)
+                }
+    }
+
+    const handleShowPassword = (e) => {
+        e.preventDefault()
+        setShowPassword(prev => !prev)
+    } 
 
     return (
     <>
@@ -18,9 +63,26 @@ const Login = () => {
            <div className="login-form-container">
                <form className="login-form">
                    <label>Email</label>
-                   <input type="email"></input>
+                   <input 
+                        type="text"
+                        value={email}
+                        className={ emailErr ? "form-control-alert" : null}
+                        onChange={handleChangeEmail}
+                        onBlur={validateEmail}
+                        pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
+                   ></input>
+                   <h6 className={ emailErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
                    <label>Hasło</label>
-                   <input type="password"></input>
+                   <input 
+                        type={ showPassword ? "text" : "password"}
+                        value={password}
+                        className={ passwordErr ? "form-control-alert" : null}
+                        onChange={handleChangePassword}
+                        pattern="^\S{6,}$"
+                        onBlur={validatePassword}
+                   ></input>
+                   <button className="contact-form-info" onClick={handleShowPassword} >Pokaż hasło</button>
+                   <h6 className={ passwordErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Hasło musi mieć conajmniej 6 znaków!</h6>
                </form>
            </div>
            <ul>

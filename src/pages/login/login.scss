@@ -50,3 +50,27 @@
         margin-left:250px;
     }
 }
+
+.form-control-alert {
+    border-bottom: 1px solid red!important;
+}
+
+.contact-form-alert {
+    font: normal normal 700 12px/24px $font-base;
+    color: red;
+}
+
+.contact-form-info {
+    border: none;
+    font: normal normal 700 12px/24px $font-base;
+    color: rgba($color: $secondary-grey, $alpha: 0.4);
+    text-align: end;
+    &:hover {
+        cursor: pointer;
+        color: rgba($color: $secondary-grey, $alpha: 0.8);
+    }
+}
+
+.d-none {
+    display: none;
+}
