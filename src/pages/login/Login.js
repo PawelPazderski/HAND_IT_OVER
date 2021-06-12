@@ -35,16 +35,16 @@ const Login = () => {
         if (e.target.validity.patternMismatch) {
             setPasswordErr(true)
         } else {
-                setPasswordErr(false)
-                }
+            setPasswordErr(false)
+            }
     }
 
     const validateEmail = (e) => {
         if (e.target.validity.patternMismatch) {
             setEmailErr(true)
         } else {
-                setEmailErr(false)
-                }
+            setEmailErr(false)
+            }
     }
 
     const handleShowPassword = (e) => {
@@ -57,42 +57,43 @@ const Login = () => {
         <NavTop />
         <NavBottom />
         <div className="login-container">
-           <Heading title="Zaloguj się"/>
-           <div className="login-form-container">
-               <form className="login-form">
-                   <label>Email</label>
-                   <input 
-                        type="text"
-                        value={email}
-                        className={ emailErr ? "form-control-alert" : null}
-                        onChange={handleChangeEmail}
-                        onBlur={validateEmail}
-                        pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
-                   ></input>
-                   <h6 className={ emailErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
-                   <label>Hasło</label>
-                   <input 
-                        type={ showPassword ? "text" : "password"}
-                        value={password}
-                        className={ passwordErr ? "form-control-alert" : null}
-                        onChange={handleChangePassword}
-                        pattern="^\S{6,}$"
-                        onBlur={validatePassword}
-                   ></input>
-                   <button className="contact-form-info" onClick={handleShowPassword} >Pokaż hasło</button>
-                   <h6 className={ passwordErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Hasło musi mieć conajmniej 6 znaków!</h6>
-               </form>
-           </div>
-           <ul>
-               <li>
-                   <Link className="bottom-link" to="/login">Zaloguj się</Link>
-               </li>
-               <li>
-                   <Link className="bottom-link" to="/register">Załóż konto</Link>
-               </li>
-           </ul>
+            <Heading title="Zaloguj się"/>
+                <div className="login-form-container">
+                    <form className="login-form">
+                        <label>Email</label>
+                        <input 
+                            type="text"
+                            value={email}
+                            className={ emailErr ? "form-control-alert" : null}
+                            onChange={handleChangeEmail}
+                            onBlur={validateEmail}
+                            pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
+                        ></input>
+                        <h6 className={ emailErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
+                        <label>Hasło</label>
+                        <input 
+                            type={ showPassword ? "text" : "password"}
+                            value={password}
+                            className={ passwordErr ? "form-control-alert" : null}
+                            onChange={handleChangePassword}
+                            pattern="^\S{6,}$"
+                            onBlur={validatePassword}
+                        ></input>
+                        <button className="contact-form-info" onClick={handleShowPassword} >Pokaż hasło</button>
+                        <h6 className={ passwordErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Hasło musi mieć conajmniej 6 znaków!</h6>
+                    </form>
+                </div>
+            <ul>
+                <li>
+                    <Link className="bottom-link" to="/login">Zaloguj się</Link>
+                </li>
+                <li>
+                    <Link className="bottom-link" to="/register">Załóż konto</Link>
+                </li>
+            </ul>
         </div>
-    </>)
+    </>
+    )
 }
-    
+
 export default Login
