@@ -6,7 +6,6 @@ import './pagination.scss'
 const HomePagination = ( {itemPerPage, totalItems, paginate, currentList} ) => {
     const items = []
     const [ active, setActive ]  = useState(1)
-    const [ list, setList] = useState(currentList)
 
     useEffect(()=>{
         setActive(1)

@@ -6,8 +6,6 @@ import {Link} from 'react-router-dom';
 
 import './login.scss'
 
-const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/
-
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")

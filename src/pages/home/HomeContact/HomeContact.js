@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 
 const regName = /^[A-ZĄĘŁÓŻŹŚĆa-ząęłóżźćś]+$/
-const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/
 
 const HomeContact = () => {
     const [name, setName] = useState("")
@@ -35,18 +34,6 @@ const HomeContact = () => {
                 return
             }
     }
-
-    // const handleEmailChange = (e) => {
-    //     e.preventDefault();
-    //     setEmail(e.target.value)
-    //     console.log(regName.test(e.target.value))
-    //         if ((regEmail.test(e.target.value)) === true) {
-    //             setEmailError(false)
-    //         } else {
-    //             setEmailError(true)
-    //             return
-    //         }
-    // }
 
     const handleChangeEmail = (e) => {
         const newValueIsValid = !e.target.validity.patternMismatch;
