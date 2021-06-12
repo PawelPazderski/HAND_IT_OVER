@@ -15,7 +15,9 @@ const NavTop = () => {
                <li>
                    <Link className="navtop-link" to="/register">Załóż konto</Link>
                </li>
-               
+               <li>
+                   <Link className="navtop-link" to="/logout">Wyloguj</Link>
+               </li>
            </ul>
 
         </div>

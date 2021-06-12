@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import Logout from './pages/logout/Logout';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
                   <Route exact path="/" component={Home}/>
                   <Route path="/login" component={Login}/>
                   <Route path="/register" component={Register}/>
-              
+                  <Route path="/logout" component={Logout}/>
               </Switch>
           </Router>
       </div>

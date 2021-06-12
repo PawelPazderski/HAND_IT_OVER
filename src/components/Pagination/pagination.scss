@@ -3,7 +3,8 @@
 .home-pagination-container .home-pagination {
     margin: 0 auto;
     flex-direction: row!important;
-    .home-page-item{
+    
+    .home-page-item {
         border-bottom: none;
         margin: 0 5px;
         border: 1px solid transparent;
@@ -13,14 +14,16 @@
         border: 1px solid $secondary-grey;
     }
     
-    .home-page-item .page-link{
+    .home-page-item .page-link {
         color:$primary-grey;
         background: none;
         border: 1px solid transparent;
-        &:active{
+
+        &:active {
             border:1px solid $primary-grey!important;
         }
-        &:focus{
+
+        &:focus {
             box-shadow: none;
         }
     }

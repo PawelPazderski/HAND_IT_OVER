@@ -92,15 +92,15 @@ const HomeWhoWeHelp = () => {
         <div id="komu-pomagamy" className="whowehelp-container">
             <DecorationHeading title="Komu pomagamy?" />
                 <div className="organization-buttons">
-                    <button onClick={() => {
+                    <button className={currentList==="fundations" ? "button-active" : null} onClick={() => {
                         setCurrentPage(1)
                         setCurrentList("fundations")
                         }}>Fundacjom</button>
-                    <button onClick={() => {
+                    <button className={currentList==="organizations" ? "button-active" : null} onClick={() => {
                         setCurrentPage(1)
                         setCurrentList("organizations")
                         }}>Organizacjom<br/> pozarządowym</button>
-                    <button onClick={() => {
+                    <button className={currentList==="local" ? "button-active" : null} onClick={() => {
                         setCurrentPage(1)
                         setCurrentList("local")
                         }}>Lokalnym<br/> zbiórkom</button>

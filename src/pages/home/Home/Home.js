@@ -9,7 +9,6 @@ import HomeContact from '../HomeContact'
 
 
 const Home = () => {
-  
 
     return (
     <>
@@ -20,10 +19,9 @@ const Home = () => {
             <HomeAbout />
             <HomeWhoWeHelp />
             <HomeContact />
-           
         </div>
-        
-    </>)
+    </>
+    )
 }
     
 export default Home
