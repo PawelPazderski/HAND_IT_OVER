@@ -41,9 +41,9 @@
             text-decoration: none;
             border: 1px solid transparent;
             color: $secondary-grey;
-            
+
             &:hover{
-                border: 1px solid $primary-grey;
+                border: 1px solid rgba($color: $secondary-grey, $alpha: 0.5);
             }
         }
     }
