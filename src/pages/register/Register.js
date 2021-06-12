@@ -78,7 +78,7 @@ const Register = () => {
         <NavTop />
         <NavBottom />
         <div className="register-container">
-           <Heading title="Zaloguj się"/>
+           <Heading title="Załóż konto"/>
            <div className="register-form-container">
                <form className="register-form">
                    <label>Email</label>
