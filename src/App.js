@@ -12,6 +12,7 @@ import Register from './pages/register/Register';
 import Logout from './pages/logout/Logout';
 
 function App() {
+
   return (
     <>
       <div className="App">

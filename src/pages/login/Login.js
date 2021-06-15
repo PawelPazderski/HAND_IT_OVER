@@ -1,10 +1,15 @@
+import firebase from '../../fire'
 import React, { useState } from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
 import {Link} from 'react-router-dom';
 
+import "firebase/auth";
+import "firebase/firestore";
+
 import './login.scss'
+
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -12,6 +17,10 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [emailErr, setEmailErr] = useState(false)
     const [passwordErr, setPasswordErr] = useState(false)
+    const [loggedUser, setLoggedUser] = useState(false)
+    const [actualUser, setActualUser] = useState(null)
+
+    
 
     const handleChangePassword = (e) => {
         const newValueIsValid = !e.target.validity.patternMismatch;
@@ -52,6 +61,29 @@ const Login = () => {
         setShowPassword(prev => !prev)
     } 
 
+    const preventEnter = (e) => {
+        if(e.key === 'Enter'){
+            e.preventDefault()
+        }
+    }
+
+    const loginUser = () => {
+        if (email.length && password.length && !emailErr && !passwordErr) {
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              // Signed in
+              var user = userCredential.user;
+              // ...
+            })
+            .catch((error) => {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+            });
+        }
+        setEmail("")
+        setPassword("")
+    }
+
     return (
     <>
         <NavTop />
@@ -67,6 +99,7 @@ const Login = () => {
                             className={ emailErr ? "form-control-alert" : null}
                             onChange={handleChangeEmail}
                             onBlur={validateEmail}
+                            onKeyPress={preventEnter}
                             pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
                         ></input>
                         <h6 className={ emailErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
@@ -78,6 +111,7 @@ const Login = () => {
                             onChange={handleChangePassword}
                             pattern="^\S{6,}$"
                             onBlur={validatePassword}
+                            onKeyPress={preventEnter}
                         ></input>
                         <button className="contact-form-info" onClick={handleShowPassword} >Pokaż hasło</button>
                         <h6 className={ passwordErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Hasło musi mieć conajmniej 6 znaków!</h6>
@@ -85,11 +119,12 @@ const Login = () => {
                 </div>
             <ul>
                 <li>
-                    <Link className="bottom-link" to="/login">Zaloguj się</Link>
-                </li>
-                <li>
                     <Link className="bottom-link" to="/register">Załóż konto</Link>
                 </li>
+                <li>
+                    <Link className="bottom-link" onClick={loginUser}>Zaloguj się</Link>
+                </li>
+                
             </ul>
         </div>
     </>
