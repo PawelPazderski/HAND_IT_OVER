@@ -1,5 +1,5 @@
 import firebase from '../../fire'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
@@ -18,8 +18,14 @@ const Login = () => {
     const [emailErr, setEmailErr] = useState(false)
     const [passwordErr, setPasswordErr] = useState(false)
     const [loggedUser, setLoggedUser] = useState(false)
-    const [actualUser, setActualUser] = useState(null)
 
+
+    useEffect(()=>{
+        if (loggedUser) {
+            window.location.assign('http://localhost:3000/')
+        }
+
+    },[loggedUser])
     
 
     const handleChangePassword = (e) => {
@@ -72,13 +78,15 @@ const Login = () => {
             firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
               // Signed in
-              var user = userCredential.user;
+                var user = userCredential.user;
               // ...
+                setLoggedUser(true)
             })
             .catch((error) => {
               var errorCode = error.code;
               var errorMessage = error.message;
             });
+            
         }
         setEmail("")
         setPassword("")

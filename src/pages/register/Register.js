@@ -1,10 +1,11 @@
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from '../../fire'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
 import {Link} from 'react-router-dom';
+// import patterns from './../../components/Patterns'
 
 
 import "firebase/auth";
@@ -22,6 +23,14 @@ const Register = () => {
     const [emailErr, setEmailErr] = useState(false)
     const [passwordErr, setPasswordErr] = useState(false)
     const [passwordRepeatErr, setPasswordRepeatErr] = useState(false)
+    const [loggedUser, setLoggedUser] = useState(false)
+
+
+    useEffect(()=>{
+        if (loggedUser) {
+            window.location.assign('http://localhost:3000/')
+        }
+    },[loggedUser])
 
     const handleChangePassword = (e) => {
         const newValueIsValid = !e.target.validity.patternMismatch;
@@ -99,11 +108,14 @@ const Register = () => {
             .then((userCredential) => {
                 // Signed in 
                 var user = userCredential.user;
+                setLoggedUser(true)
                 // ...
             })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
+                console.log(error)
+                alert(error.message)
                 // ..
             });
         }
@@ -169,11 +181,16 @@ const Register = () => {
                                 onKeyPress={preventEnter}
                             />
                         <button className="contact-form-info" onClick={handleShowPassword} >Pokaż hasło</button>
-                        <h6 className={ passwordRepeatErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Hasła musza być identyczne!</h6>
-                        {/* <div className="register-buttons">
-                            <Link className="bottom-link" to="/login">Zaloguj się</Link>
-                            <button type="submit" className="bottom-link register-submit" >Załóż konto</button>
-                        </div> */}
+                        <h6 
+                            className={ 
+                            passwordRepeatErr 
+                            ? 
+                            "contact-form-alert contact-form-email-alert" 
+                            : 
+                            "contact-form-alert contact-form-email-alert d-none"
+                            }>
+                                Hasła musza być identyczne!
+                        </h6>
                     </form>
                     
             </div>

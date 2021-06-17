@@ -1,0 +1,16 @@
+@import "../../scss/settings/variables";
+
+.handover-bottom-link {
+    margin: 50px auto;
+    font: normal normal normal 18px/32px $font-base;
+    padding: 5px 10px;
+    text-align: left;
+    text-decoration: none;
+    border: 1px solid $primary-grey;
+    color: $secondary-grey;
+    &:hover {
+        border: 1px solid $primary-grey;
+        text-decoration: none;
+        color: $secondary-grey;
+    }
+}
