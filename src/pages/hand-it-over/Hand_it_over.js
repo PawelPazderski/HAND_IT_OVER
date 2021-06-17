@@ -15,7 +15,10 @@ const HandOver = () => {
         <NavTop />
         <NavBottom />
         <Heading title="Oddaj rzeczy"/>
-        <Link className="handover-bottom-link" to="/">Strona główna</Link>
+        <div className="handover-bottom-link-div">
+            <Link className="handover-bottom-link" to="/">Strona główna</Link>
+        </div>
+        
     </>
     )
 }
