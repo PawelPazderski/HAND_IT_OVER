@@ -10,7 +10,7 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Logout from './pages/logout/Logout';
-import HandOver from './pages/hand-it-over/Hand_it_over';
+import HandOver from './pages/hand-it-over/Hand-it-over';
 
 function App() {
 

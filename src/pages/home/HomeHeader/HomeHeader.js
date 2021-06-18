@@ -6,14 +6,11 @@ import {Link} from 'react-router-dom'
 
 import './homeheader.scss'
 
-
 const HomeHeader = () => {
-  
 
     return (
     <>
         <div className="homeheader-container">
-            
             <NavTop />
             <NavBottom />
             <div className="header-heading-container">
@@ -23,9 +20,6 @@ const HomeHeader = () => {
                     <Link className="header-link" to="/login">Zorganizuj zbiórkę</Link>
                 </div>
             </div>
-
-            
-
         </div>
     </>)
 }

@@ -1,0 +1,11 @@
+@import "../../../scss/settings/variables";
+
+.handover-yellow-belt{
+    height:180px;
+    background-color: $primary-yellow;
+}
+
+.handover-form-container {
+    height: 800px;
+    background: transparent url('Background-Form.png') center/cover no-repeat padding-box;
+}
