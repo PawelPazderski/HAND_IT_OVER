@@ -1,0 +1,12 @@
+@import "../../../scss/settings/variables";
+
+.hand-over-form-button {
+    margin-top:100px;
+    margin-right: 50px;
+    font: normal normal 300 24px/32px $font-base;
+    letter-spacing: 0px;
+    color: #000000;
+    padding: 15px 40px;
+    background-color: transparent;
+    border:1px solid $primary-grey;
+}

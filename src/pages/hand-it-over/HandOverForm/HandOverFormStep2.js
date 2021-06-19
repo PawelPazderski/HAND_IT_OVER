@@ -1,38 +1,3 @@
-// import React, {useState, useEffect} from 'react'
-// import Heading from '../../../components/DecorationHeading'
-// import {Link} from 'react-router-dom'
-
-// import HandOverButton from "./../../hand-it-over/HandOverButton"
-
-
-
-// const HandOverFormStep2 = ( {chooseStep2, goToStep} ) => {
-
-//     return (
-//         <>
-//             <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
-//             <form>
-//                 <div className="step2-group">
-//                     <label>Liczba 60l worków:</label>
-//                     <select type="select" name="wybierz">
-//                             <option value="0">- wybierz -</option>
-//                             <option value="1">1</option>
-//                             <option value="2">2</option>
-//                             <option value="3">3</option>
-//                             <option value="4">4</option>
-//                             <option value="5">5</option>
-//                     </select>
-//                 </div>
-            
-//             </form>
-//             <HandOverButton goToStep={goToStep} path="Wstecz" step={1}/>
-//             <HandOverButton goToStep={goToStep} path="Dalej" step={3}/>
-//         </>
-//     )
-// }
-
-// export default HandOverFormStep2
-
 import React, { useState } from "react";
 import styled from "styled-components";
 import HandOverButton from "./../../hand-it-over/HandOverButton"
@@ -73,7 +38,7 @@ const DropDownList = styled("ul")`
     padding: 0;
     margin: 0;
     padding-left: 1em;
-    border: 1px solid #3C3C3C;
+    border-right: 1px solid #3C3C3C;
     box-sizing: border-box;
     color: #3C3C3C;
     font-size: 1.3rem;
@@ -88,6 +53,10 @@ const ListItem = styled("li")`
     list-style: none;
     margin-bottom: 0.8em;
     cursor: pointer;
+    &:hover {
+        color: #FAD648;
+        border-bottom: 1px solid #3C3C3C;
+    }
 `;
 
 const ArrowDown = styled("div")`
@@ -110,7 +79,7 @@ const ArrowUp = styled("div")`
 
 const options = ["1", "2", "3", "4", "5"];
 
-const HandOverFormStep2 = ( {chooseStep2, goToStep, step2} ) => {
+const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -119,7 +88,7 @@ const HandOverFormStep2 = ( {chooseStep2, goToStep, step2} ) => {
     const onOptionClicked = value => () => {
         setSelectedOption(value);
         setIsOpen(false);
-        console.log(selectedOption);
+        chooseBags(value)
     };
 
     return (
@@ -129,15 +98,15 @@ const HandOverFormStep2 = ( {chooseStep2, goToStep, step2} ) => {
             <label>Liczba 60l worków:</label>
             <DropDownContainer>
                 <DropDownHeader onClick={toggling}>
-                {selectedOption || "– wybierz –"}
-                {isOpen? <ArrowUp /> : <ArrowDown />}
+                    { bags ? bags : (selectedOption || "– wybierz –") }
+                    { isOpen ? <ArrowUp /> : <ArrowDown /> }
                 </DropDownHeader>
-                {isOpen && (
+                { isOpen && (
                 <DropDownListContainer>
                     <DropDownList>
                     {options.map(option => (
                         <ListItem onClick={onOptionClicked(option)} key={option}>
-                        {option}
+                            {option}
                         </ListItem>
                     ))}
                     </DropDownList>

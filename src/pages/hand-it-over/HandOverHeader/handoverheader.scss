@@ -14,6 +14,7 @@
         margin-top:50px;
         align-self: flex-end;
     }
+    
     .header-four-steps-title {
         margin-top: 25px;
         text-align: center;
@@ -24,8 +25,10 @@
 }
 
 .steps-container {
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     .steps-item {
         transform: rotate(45deg);
