@@ -6,12 +6,14 @@ import './handoverform.scss'
 
 const Main = styled("div")`
     font-family: sans-serif;
-    height: 300px;
+    height: fit-content;
     display: flex;
+    
 `;
 
 const DropDownContainer = styled("div")`
     width: 300px;
+    position: relative;
 `;
 
 const DropDownHeader = styled("div")`
@@ -24,21 +26,25 @@ const DropDownHeader = styled("div")`
     display: flex;
     justify-content:space-between;
     align-items: center;
+    
 `;
 
 const DropDownListContainer = styled("div")`
-    display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 2;
+    background-color: rgb(245, 245, 240);
     `;
 
 const DropDownList = styled("ul")`
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 300px;
     padding: 0;
     margin: 0;
     padding-left: 1em;
-    border-right: 1px solid #3C3C3C;
+    border: 1px solid #3C3C3C;
     box-sizing: border-box;
     color: #3C3C3C;
     font-size: 1.3rem;
@@ -78,10 +84,14 @@ const ArrowUp = styled("div")`
     transform: translate(0%, 20%) rotate(45deg);
 `;
 
-const options = ["1", "2", "3", "4", "5"];
+const options = ["Poznań", "Warszawa", "Kraków", "Wrocław", "Katowice"];
 
-const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
+const groups = ["dzieciom", "samotnym matkom", "bezdomnym", "niepełnosparwnym", "osobom starszym"];
+
+const HandOverFormStep3 = ( {chooseLocalization, selectGroups,  goToStep, localization, helpGroups} ) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [selected, setSelected] = useState([])
+    
     const [selectedOption, setSelectedOption] = useState(null);
 
     const toggling = () => setIsOpen(!isOpen);
@@ -89,17 +99,27 @@ const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
     const onOptionClicked = value => () => {
         setSelectedOption(value);
         setIsOpen(false);
-        chooseBags(value)
+        chooseLocalization(value)
     };
+
+    // const handleChecked = e => {
+    //     console.log(e.target.checked)
+    //     if (e.target.checked) {
+    //         setSelected( prev => [...prev, e.target.value])
+    //     } else {
+    //         setSelected( prev => [...prev].filter( el => el != e.target.value))
+    //     }
+    // }
+
+
 
     return (
         <>
-            <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
+            <h2 style={{marginTop: "40px"}}>Lokalizacja:</h2>
             <Main>
-            <label>Liczba 60l worków:</label>
             <DropDownContainer>
                 <DropDownHeader onClick={toggling}>
-                    { bags ? bags : (selectedOption || "– wybierz –") }
+                    { localization ? localization : (selectedOption || "– wybierz –") }
                     { isOpen ? <ArrowUp /> : <ArrowDown /> }
                 </DropDownHeader>
                 { isOpen && (
@@ -115,10 +135,23 @@ const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
                 )}
             </DropDownContainer>
             </Main>
-            <HandOverButton goToStep={goToStep} path="Wstecz" step={1}/>
-            <HandOverButton goToStep={goToStep} path="Dalej" step={3}/>
+            <h3 style={{marginTop: "40px"}}>Komu chcesz pomóc?</h3>
+            <div className="checkbox-container">
+                <ul>
+                    {groups.map((item, i) => (
+                        <li className={helpGroups.includes(item) ? "help-group-checked" : null} key={i}>
+                            <label className="checkbox-label">{item}
+                                <input value={item} type="checkbox" onChange={selectGroups}></input>
+                            </label>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            
+            <HandOverButton goToStep={goToStep} path="Wstecz" step={2}/>
+            <HandOverButton goToStep={goToStep} path="Dalej" step={4}/>
         </>
     );
 }
 
-export default HandOverFormStep2
+export default HandOverFormStep3

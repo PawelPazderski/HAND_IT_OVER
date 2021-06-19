@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 
 import HandOverFormStep1 from './HandOverFormStep1'
 import HandOverFormStep2 from './HandOverFormStep2'
+import HandOverFormStep3 from './HandOverFormStep3'
+
 import './handoverform.scss'
 
 const HandOverForm = () => {
@@ -16,13 +18,28 @@ const HandOverForm = () => {
     ])
     const [type, setType] = useState("")
     const [bags, setBags] = useState("")
+    const [localization, setLocalization] = useState("")
+    const [helpGroups, setHelpGroups] = useState([])
 
-    const chooseType = (e) => {
+    const chooseType = e => {
         setType(e.target.value)
     }
 
-    const chooseBags = (value) => {
+    const chooseBags = value => {
         setBags(value);
+    }
+
+    const chooseLocalization = value => {
+        setLocalization(value);
+    }
+
+    const selectGroups = e => {
+        console.log(e.target.checked)
+        if (e.target.checked) {
+            setHelpGroups( prev => [...new Set([...prev, e.target.value])])
+        } else {
+            setHelpGroups( prev => [...prev].filter( el => el != e.target.value))
+        }
     }
 
     const goToStep = (e) => {
@@ -48,6 +65,7 @@ const HandOverForm = () => {
             { (step > 0 && step <= 4) && <h5>Krok {step}/4</h5> }
             { step == 1 && <HandOverFormStep1 type={type} goToStep={goToStep} chooseType={chooseType} />}
             { step == 2 && <HandOverFormStep2 bags={bags} goToStep={goToStep} chooseBags={chooseBags} />}
+            { step == 3 && <HandOverFormStep3 helpGroups={helpGroups} localization={localization} selectGroups={selectGroups} goToStep={goToStep} chooseLocalization={chooseLocalization} />}
         </div>
     </>
     )

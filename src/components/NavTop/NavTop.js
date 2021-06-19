@@ -32,10 +32,10 @@ const NavTop = () => {
     <>
         <div className="navtop-container">
             <ul>
-                <li>
+                <li className="navtop-list-item">
                     { (activeUser != null) && <h6 style={{paddingTop: "32px"}} className="welcome-top">Cześć, {activeUser}!</h6>}
                 </li>
-                <li>
+                <li className="navtop-list-item">
                     { (activeUser === null) 
                     ? 
                     <Link className="navtop-link" to="/login">Zaloguj</Link>
@@ -43,7 +43,7 @@ const NavTop = () => {
                     <Link className="navtop-link" to="/hand-over">Oddaj rzeczy</Link>
                     }
                 </li>
-                <li>
+                <li className="navtop-list-item">
                     { (activeUser === null) 
                     ? 
                     <Link className="navtop-link" to="/register">Załóż konto</Link>

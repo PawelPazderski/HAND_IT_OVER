@@ -52,10 +52,10 @@
 
     input {
         position: absolute;
-        opacity: 0;
+        opacity: 0.5;
         cursor: pointer;
-        height: 0;
-        width: 0;
+        height: 15;
+        width: 15;
 
         &:checked ~ .checkmark {
             background-color: $primary-yellow;
@@ -94,4 +94,32 @@ select {
     border:1px soli red;
     height: 20px;
     width: 20px;
+}
+
+.checkbox-container ul {
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 700px;
+    height:fit-content;
+
+    .help-group-checked {
+        background-color: $primary-yellow;
+    }
+
+    li {
+        border: 1px solid $primary-grey;
+        text-align: center;
+        padding: 5px 10px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+
+        .checkbox-label {
+            text-align: center;
+            padding:0;
+            margin-bottom: 0;
+        }
+
+        
+    }
 }
