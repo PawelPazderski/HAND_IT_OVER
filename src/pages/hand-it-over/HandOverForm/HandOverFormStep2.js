@@ -106,7 +106,7 @@ const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
                 <DropDownListContainer>
                     <DropDownList>
                     {options.map(option => (
-                        <ListItem onClick={onOptionClicked(option)} key={option}>
+                        <ListItem className="step2-input" onClick={onOptionClicked(option)} key={option}>
                             {option}
                         </ListItem>
                     ))}

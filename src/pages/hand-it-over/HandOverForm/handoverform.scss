@@ -50,16 +50,34 @@
         margin-left: 55px;
     }
 
-    input {
+    .step3-title-low {
+        text-align: left;
+        font: normal normal 600 24px/32px $font-base;
+        letter-spacing: 0px;
+        color: #000000;
+    }
+
+    .step1-input,
+    .step3-input {
         position: absolute;
-        opacity: 0.5;
+        opacity: 0;
         cursor: pointer;
-        height: 15;
-        width: 15;
+        height: 0;
+        width: 0;
 
         &:checked ~ .checkmark {
             background-color: $primary-yellow;
         }
+    }
+
+    .step3-text-input {
+        font: normal normal 300 24px/32px $font-base;
+        padding: 5px 10px;
+        color: #3C3C3C;
+        background-color: transparent;
+        border-radius: 0;
+        border: 0.75px solid #3C3C3C;
+        width: 550px;
     }
 
     .checkmark {
@@ -119,7 +137,5 @@ select {
             padding:0;
             margin-bottom: 0;
         }
-
-        
     }
 }

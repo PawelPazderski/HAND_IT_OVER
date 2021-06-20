@@ -20,6 +20,7 @@ const HandOverForm = () => {
     const [bags, setBags] = useState("")
     const [localization, setLocalization] = useState("")
     const [helpGroups, setHelpGroups] = useState([])
+    const [specificOrg, setSpecificOrganization] = useState("")
 
     const chooseType = e => {
         setType(e.target.value)
@@ -40,6 +41,10 @@ const HandOverForm = () => {
         } else {
             setHelpGroups( prev => [...prev].filter( el => el != e.target.value))
         }
+    }
+
+    const getSpecificOrganization = e => {
+        setSpecificOrganization(e.target.value)
     }
 
     const goToStep = (e) => {
@@ -65,7 +70,7 @@ const HandOverForm = () => {
             { (step > 0 && step <= 4) && <h5>Krok {step}/4</h5> }
             { step == 1 && <HandOverFormStep1 type={type} goToStep={goToStep} chooseType={chooseType} />}
             { step == 2 && <HandOverFormStep2 bags={bags} goToStep={goToStep} chooseBags={chooseBags} />}
-            { step == 3 && <HandOverFormStep3 helpGroups={helpGroups} localization={localization} selectGroups={selectGroups} goToStep={goToStep} chooseLocalization={chooseLocalization} />}
+            { step == 3 && <HandOverFormStep3 helpGroups={helpGroups} specificOrg={specificOrg} localization={localization} selectGroups={selectGroups} goToStep={goToStep} chooseLocalization={chooseLocalization} getSpecificOrganization={getSpecificOrganization} />}
         </div>
     </>
     )

@@ -85,13 +85,10 @@ const ArrowUp = styled("div")`
 `;
 
 const options = ["Poznań", "Warszawa", "Kraków", "Wrocław", "Katowice"];
-
 const groups = ["dzieciom", "samotnym matkom", "bezdomnym", "niepełnosparwnym", "osobom starszym"];
 
-const HandOverFormStep3 = ( {chooseLocalization, selectGroups,  goToStep, localization, helpGroups} ) => {
+const HandOverFormStep3 = ( {chooseLocalization, selectGroups, goToStep, localization, helpGroups, getSpecificOrganization, specificOrg} ) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState([])
-    
     const [selectedOption, setSelectedOption] = useState(null);
 
     const toggling = () => setIsOpen(!isOpen);
@@ -101,17 +98,6 @@ const HandOverFormStep3 = ( {chooseLocalization, selectGroups,  goToStep, locali
         setIsOpen(false);
         chooseLocalization(value)
     };
-
-    // const handleChecked = e => {
-    //     console.log(e.target.checked)
-    //     if (e.target.checked) {
-    //         setSelected( prev => [...prev, e.target.value])
-    //     } else {
-    //         setSelected( prev => [...prev].filter( el => el != e.target.value))
-    //     }
-    // }
-
-
 
     return (
         <>
@@ -135,21 +121,24 @@ const HandOverFormStep3 = ( {chooseLocalization, selectGroups,  goToStep, locali
                 )}
             </DropDownContainer>
             </Main>
-            <h3 style={{marginTop: "40px"}}>Komu chcesz pomóc?</h3>
+            <h3 className="step3-title-low" style={{marginTop: "40px"}}>Komu chcesz pomóc?</h3>
             <div className="checkbox-container">
                 <ul>
                     {groups.map((item, i) => (
                         <li className={helpGroups.includes(item) ? "help-group-checked" : null} key={i}>
                             <label className="checkbox-label">{item}
-                                <input value={item} type="checkbox" onChange={selectGroups}></input>
+                                <input className="step3-input" value={item} type="checkbox" onChange={selectGroups}></input>
                             </label>
                         </li>
                     ))}
                 </ul>
             </div>
-            
-            <HandOverButton goToStep={goToStep} path="Wstecz" step={2}/>
-            <HandOverButton goToStep={goToStep} path="Dalej" step={4}/>
+                <h3 className="step3-title-low" style={{marginTop: "40px"}}>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
+                <input className="step3-text-input" type="text" value={specificOrg} onChange={getSpecificOrganization}></input>
+            <div>
+                <HandOverButton goToStep={goToStep} path="Wstecz" step={2}/>
+                <HandOverButton goToStep={goToStep} path="Dalej" step={4}/>
+            </div>
         </>
     );
 }
