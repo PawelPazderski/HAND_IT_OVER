@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import HandOverFormStep1 from './HandOverFormStep1'
 import HandOverFormStep2 from './HandOverFormStep2'
 import HandOverFormStep3 from './HandOverFormStep3'
+import HandOverFormStep4 from './HandOverFormStep4'
 
 import './handoverform.scss'
 
@@ -68,9 +69,33 @@ const HandOverForm = () => {
         }
         <div className="handover-form-container">
             { (step > 0 && step <= 4) && <h5>Krok {step}/4</h5> }
-            { step == 1 && <HandOverFormStep1 type={type} goToStep={goToStep} chooseType={chooseType} />}
-            { step == 2 && <HandOverFormStep2 bags={bags} goToStep={goToStep} chooseBags={chooseBags} />}
-            { step == 3 && <HandOverFormStep3 helpGroups={helpGroups} specificOrg={specificOrg} localization={localization} selectGroups={selectGroups} goToStep={goToStep} chooseLocalization={chooseLocalization} getSpecificOrganization={getSpecificOrganization} />}
+            { step == 1 
+            && 
+            <HandOverFormStep1 
+                type={type} 
+                goToStep={goToStep} 
+                chooseType={chooseType} />}
+            { step == 2 
+            && 
+            <HandOverFormStep2 
+                bags={bags} 
+                goToStep={goToStep} 
+                chooseBags={chooseBags} />}
+            { step == 3 
+            && 
+            <HandOverFormStep3 
+                helpGroups={helpGroups} 
+                specificOrg={specificOrg} 
+                localization={localization} 
+                selectGroups={selectGroups} 
+                goToStep={goToStep} 
+                chooseLocalization={chooseLocalization} 
+                getSpecificOrganization={getSpecificOrganization} />}
+            { step == 4 
+            && 
+            <HandOverFormStep4  
+                goToStep={goToStep} 
+                />}
         </div>
     </>
     )
