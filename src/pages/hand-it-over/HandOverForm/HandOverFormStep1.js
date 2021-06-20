@@ -10,7 +10,7 @@ const HandOverFormStep1 = ( {chooseType, goToStep, type} ) => {
 
     return (
         <>
-            <h1>Zaznacz co chcesz oddać:</h1>
+            <h1 className="hand-over-form-title">Zaznacz co chcesz oddać:</h1>
             <form>
                 <label>
                     <h4>ubrania, które nadają się do ponownego użycia</h4>

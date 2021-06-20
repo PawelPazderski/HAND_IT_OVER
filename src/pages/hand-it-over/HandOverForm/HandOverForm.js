@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import Heading from '../../../components/DecorationHeading'
-import {Link} from 'react-router-dom'
+import firebase from '../../../fire'
+import "firebase/auth";
+import "firebase/firestore";
 
 import HandOverFormStep1 from './HandOverFormStep1'
 import HandOverFormStep2 from './HandOverFormStep2'
 import HandOverFormStep3 from './HandOverFormStep3'
 import HandOverFormStep4 from './HandOverFormStep4'
+import HandOverFormSummary from './HandOverFormSummary'
+import HandOverFormThankYou from './HandOverFormThankYou'
 
 import './handoverform.scss'
 
 const HandOverForm = () => {
+    const [ activeUser, setActiveUser ] = useState(null)
     const [ step, setStep ] = useState(1)
     const [ stepInfo ] = useState([
         {info: "Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać."},
@@ -22,6 +26,46 @@ const HandOverForm = () => {
     const [localization, setLocalization] = useState("")
     const [helpGroups, setHelpGroups] = useState([])
     const [specificOrg, setSpecificOrganization] = useState("")
+    const [addressErr, setAddressErr] = useState([])
+    const [address, setAddress] = useState({
+        street: "",
+        city: "",
+        postCode: "",
+        phone: ""
+    })
+    const [term, setTerm] = useState({
+        date: "",
+        time: "",
+        note: ""
+    })
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            setActiveUser(user.email)
+        } else {
+            setActiveUser(null)
+        }
+    });
+
+    useEffect(()=>{
+        if (step == 6) {
+            firebase.firestore().collection("user-forms").add({
+                user: {activeUser},
+                type: {type},
+                bags: {bags},
+                localization: {localization},
+                helpGroups:{helpGroups},
+                address: {address},
+                term: {term}
+            })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+        }
+    }, [step])
 
     const chooseType = e => {
         setType(e.target.value)
@@ -35,8 +79,33 @@ const HandOverForm = () => {
         setLocalization(value);
     }
 
+    const handleAddressError = (value) => {
+        setAddressErr( prev => [...new Set([...prev, value])])
+    }
+
+    const clearAddressError = (value) => {
+        setAddressErr( prev => [...prev].filter( el => el != value))
+    }
+
+    const handleAddress = e => {
+        setAddress((prev) => {
+            return {
+                ...prev,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    const handleTerm = e => {
+        setTerm((prev) => {
+            return {
+                ...prev,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
     const selectGroups = e => {
-        console.log(e.target.checked)
         if (e.target.checked) {
             setHelpGroups( prev => [...new Set([...prev, e.target.value])])
         } else {
@@ -54,8 +123,31 @@ const HandOverForm = () => {
             alert("Zaznacz jedną z opcji!")
             return
         }
+        if ( step==2 && !bags.length ) {
+            alert("Podaj ilość worków!")
+            return
+        }
+        if ( step==3 && !localization.length && !specificOrg.length) {
+            alert("Podaj lokalizację lub wskaż konkretną organizację!")
+            return
+        }
+        if ( step==3 && !helpGroups.length) {
+            alert("Wybierz conajmniej jedną grupę docelową!")
+            return
+        }
+        if ( step==4 && (!address.street || !address.city || !address.postCode || !address.phone)) {
+            alert("Wypełnij wszystkie pola adresowe!")
+            return
+        }
+        if ( step==4 && addressErr.length) {
+            alert("Wypełnij wszystkie pola adresowe!")
+            return
+        }
+        if ( step==4 && (!term.date || !term.time)) {
+            alert("Podaj datę i godzinę odbioru!")
+            return
+        }
         setStep(e.target.value)
-        
     }
 
     return (
@@ -94,8 +186,29 @@ const HandOverForm = () => {
             { step == 4 
             && 
             <HandOverFormStep4  
-                goToStep={goToStep} 
+                handleAddress={handleAddress}
+                handleAddressError={handleAddressError}
+                clearAddressError={clearAddressError}
+                handleTerm={handleTerm}
+                goToStep={goToStep}
+                address={address}
+                term={term}  
                 />}
+                { step == 5 
+                && 
+                <HandOverFormSummary
+                    type={type}
+                    bags={bags}
+                    helpGroups={helpGroups}
+                    localization={localization}
+                    specificOrg={specificOrg}
+                    address={address}
+                    term={term}  
+                    goToStep={goToStep} 
+                    />}
+                { step == 6 
+                && 
+                <HandOverFormThankYou />}
         </div>
     </>
     )

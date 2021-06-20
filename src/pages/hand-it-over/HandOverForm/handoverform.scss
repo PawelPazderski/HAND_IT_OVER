@@ -24,7 +24,7 @@
         color: $primary-grey;
     }
 
-    h1 {
+    .hand-over-form-title {
         margin-top:50px;
         margin-bottom:70px;
     }
@@ -145,13 +145,12 @@ select {
     justify-content: space-between;
     width: 800px;
 
-    
-
     .step4-input {
-        margin-left: 50px;
-        width:200px;
+        margin-left: 30px;
+        width:230px;
         background-color: transparent;
         border: 1px solid $primary-grey;
+        color: $primary-grey;
         padding: 5px 10px;
         align-self: flex-end;
     }
@@ -160,4 +159,43 @@ select {
 .step4-form-item {
     display: flex;
     justify-content: space-between;
+}
+
+.summary-items {
+    display:flex;
+
+    .summary-icon-1 {
+        height: 50px;
+        width:50px;
+        background: url('assets/Icon-1.svg') no-repeat center/contain;
+    }
+
+    .summary-icon-2 {
+        height: 50px;
+        width:50px;
+        background: url('assets/Icon-4.svg') no-repeat center/contain;
+    }
+}
+
+.thankyou-container {
+    margin-top: 150px;
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .thankyou-bottom-link {
+        margin-top: 50px;
+        font: normal normal normal 18px/32px $font-base;
+        padding: 5px 10px;
+        text-align: left;
+        text-decoration: none;
+        border: 1px solid $primary-grey;
+        color: $secondary-grey;
+        
+        &:hover {
+            border: 1px solid $primary-grey;
+        }
+    }
 }

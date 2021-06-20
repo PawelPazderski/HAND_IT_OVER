@@ -94,7 +94,7 @@ const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
 
     return (
         <>
-            <h1>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
+            <h1 className="hand-over-form-title">Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
             <Main>
             <label>Liczba 60l worków:</label>
             <DropDownContainer>
