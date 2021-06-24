@@ -24,10 +24,8 @@ const Login = () => {
         if (loggedUser) {
             window.location.assign('http://localhost:3000/')
         }
-
     },[loggedUser])
     
-
     const handleChangePassword = (e) => {
         const newValueIsValid = !e.target.validity.patternMismatch;
 
@@ -41,7 +39,7 @@ const Login = () => {
         const newValueIsValid = !e.target.validity.patternMismatch;
 
         if (emailErr && newValueIsValid) {
-                setEmailErr(false);
+            setEmailErr(false);
         }
         setEmail(e.target.value)
     }
@@ -77,17 +75,16 @@ const Login = () => {
         if (email.length && password.length && !emailErr && !passwordErr) {
             firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
-              // Signed in
-                var user = userCredential.user;
-              // ...
+                // Signed in
+                // var user = userCredential.user;
+                // ...
                 setLoggedUser(true)
             })
             .catch((error) => {
-              var errorCode = error.code;
-              var errorMessage = error.message;
-              alert(errorMessage)
+                //  var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage)
             });
-            
         }
         setEmail("")
         setPassword("")
@@ -111,7 +108,14 @@ const Login = () => {
                             onKeyPress={preventEnter}
                             pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-z\-0-9]+\.)+[a-z]{2,}))$'
                         ></input>
-                        <h6 className={ emailErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Podany email jest niepoprawny!</h6>
+                        <h6 className={ emailErr 
+                            ? 
+                            "contact-form-alert contact-form-email-alert" 
+                            : 
+                            "contact-form-alert contact-form-email-alert d-none"
+                            }
+                                >Podany email jest niepoprawny!
+                        </h6>
                         <label>Hasło</label>
                         <input 
                             type={ showPassword ? "text" : "password"}
@@ -123,7 +127,14 @@ const Login = () => {
                             onKeyPress={preventEnter}
                         ></input>
                         <button className="contact-form-info" onClick={handleShowPassword} >Pokaż hasło</button>
-                        <h6 className={ passwordErr ? "contact-form-alert contact-form-email-alert" : "contact-form-alert contact-form-email-alert d-none"}>Hasło musi mieć conajmniej 6 znaków!</h6>
+                        <h6 className={ passwordErr 
+                            ? 
+                            "contact-form-alert contact-form-email-alert" 
+                            : 
+                            "contact-form-alert contact-form-email-alert d-none"
+                            }
+                            >Hasło musi mieć conajmniej 6 znaków!
+                        </h6>
                     </form>
                 </div>
             <ul>

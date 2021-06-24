@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 import './handoverbutton.scss'
 
 const HandOverButton = ( {path, step, goToStep} ) => {

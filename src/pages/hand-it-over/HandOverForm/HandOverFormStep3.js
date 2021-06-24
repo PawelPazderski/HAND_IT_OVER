@@ -103,38 +103,50 @@ const HandOverFormStep3 = ( {chooseLocalization, selectGroups, goToStep, localiz
         <>
             <h2 style={{marginTop: "40px"}}>Lokalizacja:</h2>
             <Main>
-            <DropDownContainer>
-                <DropDownHeader onClick={toggling}>
-                    { localization ? localization : (selectedOption || "– wybierz –") }
-                    { isOpen ? <ArrowUp /> : <ArrowDown /> }
-                </DropDownHeader>
-                { isOpen && (
-                <DropDownListContainer>
-                    <DropDownList>
-                    {options.map(option => (
-                        <ListItem onClick={onOptionClicked(option)} key={option}>
-                            {option}
-                        </ListItem>
-                    ))}
-                    </DropDownList>
-                </DropDownListContainer>
-                )}
-            </DropDownContainer>
+                <DropDownContainer>
+                    <DropDownHeader onClick={toggling}>
+                        { localization ? localization : (selectedOption || "– wybierz –") }
+                        { isOpen ? <ArrowUp /> : <ArrowDown /> }
+                    </DropDownHeader>
+                    { isOpen 
+                    && (
+                    <DropDownListContainer>
+                        <DropDownList>
+                            {options.map( option => (
+                                <ListItem onClick={onOptionClicked(option)} key={option}>
+                                    {option}
+                                </ListItem>
+                            ))}
+                        </DropDownList>
+                    </DropDownListContainer>
+                    )
+                    }
+                </DropDownContainer>
             </Main>
             <h3 className="step3-title-low" style={{marginTop: "40px"}}>Komu chcesz pomóc?</h3>
             <div className="checkbox-container">
                 <ul>
-                    {groups.map((item, i) => (
+                    {groups.map(( item, i ) => (
                         <li className={helpGroups.includes(item) ? "help-group-checked" : null} key={i}>
                             <label className="checkbox-label">{item}
-                                <input className="step3-input" value={item} type="checkbox" onChange={selectGroups}></input>
+                                <input 
+                                    className="step3-input" 
+                                    value={item} 
+                                    type="checkbox" 
+                                    onChange={selectGroups} 
+                                />
                             </label>
                         </li>
                     ))}
                 </ul>
             </div>
                 <h3 className="step3-title-low" style={{marginTop: "40px"}}>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h3>
-                <input className="step3-text-input" type="text" value={specificOrg} onChange={getSpecificOrganization}></input>
+                <input 
+                    className="step3-text-input" 
+                    type="text" 
+                    value={specificOrg} 
+                    onChange={getSpecificOrganization} 
+                />
             <div>
                 <HandOverButton goToStep={goToStep} path="Wstecz" step={2}/>
                 <HandOverButton goToStep={goToStep} path="Dalej" step={4}/>

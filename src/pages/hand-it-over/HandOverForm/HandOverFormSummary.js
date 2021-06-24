@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import HandOverButton from "./../../hand-it-over/HandOverButton"
 
 import './handoverform.scss'
@@ -12,7 +11,10 @@ const HandOverFormSummary = ( { goToStep, address, term, type, bags, helpGroups,
             <h3 className="step3-title-low" style={{marginTop: "40px"}}>Oddajesz:</h3>
             <div className="summary-items">
                 <div className="summary-icon-1"></div>
-                <h4 style={{marginLeft: "25px", marginTop: "5px"}}>worki: {bags}, przekazuję: {type}, chcę pomóc: {helpGroups.join(", ")}</h4>
+                <h4 
+                    style={{marginLeft: "25px", marginTop: "5px"}}>
+                        worki: {bags}, przekazuję: {type}, chcę pomóc: {helpGroups.join(", ")}
+                </h4>
             </div>
             <div className="summary-items">
                 <div className="summary-icon-2"></div>
@@ -106,7 +108,6 @@ const HandOverFormSummary = ( { goToStep, address, term, type, bags, helpGroups,
                 </div>
                 
             </div>
-            
             <div>
                 <HandOverButton goToStep={goToStep} path="Wstecz" step={4}/>
                 <HandOverButton goToStep={goToStep} path="Potwierdzam" step={6}/>

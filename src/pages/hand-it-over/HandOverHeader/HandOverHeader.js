@@ -2,7 +2,6 @@ import React from 'react'
 import NavBottom from '../../../components/NavBottom'
 import NavTop from '../../../components/NavTop'
 import Heading from '../../../components/DecorationHeading'
-import {Link} from 'react-router-dom'
 
 import './handoverheader.scss'
 

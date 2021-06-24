@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import HandOverButton from "./../../hand-it-over/HandOverButton"
 
 import './handoverform.scss'
@@ -70,6 +69,7 @@ const HandOverFormStep4 = ( { goToStep, clearAddressError, handleAddress, handle
                                     onBlur={validateCity} 
                                     onChange={handleAddress}></input>
                             </label>
+                            {/* //dwa spany zamiast br */}
                             <label className="step4-form-item">Kod <br/> pocztowy
                                 <input 
                                     className="step4-input" 
@@ -121,7 +121,8 @@ const HandOverFormStep4 = ( { goToStep, clearAddressError, handleAddress, handle
                                     value={term.note}
                                     className="step4-input" 
                                     onChange={handleTerm} 
-                                    style={{resize: "none", overflow: "auto", fontSize: "1rem", lineHeight: "1.5rem"}}></textarea>
+                                    style={{resize: "none", overflow: "auto", fontSize: "1rem", lineHeight: "1.5rem"}}>
+                                </textarea>
                             </label>
                         </form>
                     </div>

@@ -48,15 +48,15 @@ const HandOverForm = () => {
     });
 
     useEffect(()=>{
-        if (step == 6) {
+        if ( Number(step) === 6) {
             firebase.firestore().collection("user-forms").add({
-                user: {activeUser},
-                type: {type},
-                bags: {bags},
-                localization: {localization},
-                helpGroups:{helpGroups},
-                address: {address},
-                term: {term}
+                user: activeUser,
+                type,
+                bags,
+                localization,
+                helpGroups,
+                address,
+                term
             })
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);
@@ -84,7 +84,7 @@ const HandOverForm = () => {
     }
 
     const clearAddressError = (value) => {
-        setAddressErr( prev => [...prev].filter( el => el != value))
+        setAddressErr( prev => [...prev].filter( el => el !== value))
     }
 
     const handleAddress = e => {
@@ -109,7 +109,7 @@ const HandOverForm = () => {
         if (e.target.checked) {
             setHelpGroups( prev => [...new Set([...prev, e.target.value])])
         } else {
-            setHelpGroups( prev => [...prev].filter( el => el != e.target.value))
+            setHelpGroups( prev => [...prev].filter( el => el !== e.target.value))
         }
     }
 
@@ -123,27 +123,27 @@ const HandOverForm = () => {
             alert("Zaznacz jedną z opcji!")
             return
         }
-        if ( step==2 && !bags.length ) {
+        if ( Number(step) === 2 && !bags.length ) {
             alert("Podaj ilość worków!")
             return
         }
-        if ( step==3 && !localization.length && !specificOrg.length) {
+        if ( Number(step) === 3 && !localization.length && !specificOrg.length) {
             alert("Podaj lokalizację lub wskaż konkretną organizację!")
             return
         }
-        if ( step==3 && !helpGroups.length) {
+        if ( Number(step) === 3 && !helpGroups.length) {
             alert("Wybierz conajmniej jedną grupę docelową!")
             return
         }
-        if ( step==4 && (!address.street || !address.city || !address.postCode || !address.phone)) {
+        if ( Number(step) === 4 && (!address.street || !address.city || !address.postCode || !address.phone)) {
             alert("Wypełnij wszystkie pola adresowe!")
             return
         }
-        if ( step==4 && addressErr.length) {
+        if ( Number(step) === 4 && addressErr.length) {
             alert("Wypełnij wszystkie pola adresowe!")
             return
         }
-        if ( step==4 && (!term.date || !term.time)) {
+        if ( Number(step) === 4 && (!term.date || !term.time)) {
             alert("Podaj datę i godzinę odbioru!")
             return
         }
@@ -161,19 +161,19 @@ const HandOverForm = () => {
         }
         <div className="handover-form-container">
             { (step > 0 && step <= 4) && <h5>Krok {step}/4</h5> }
-            { step == 1 
+            { Number(step) === 1 
             && 
             <HandOverFormStep1 
                 type={type} 
                 goToStep={goToStep} 
                 chooseType={chooseType} />}
-            { step == 2 
+            { Number(step) === 2 
             && 
             <HandOverFormStep2 
                 bags={bags} 
                 goToStep={goToStep} 
                 chooseBags={chooseBags} />}
-            { step == 3 
+            { Number(step) === 3 
             && 
             <HandOverFormStep3 
                 helpGroups={helpGroups} 
@@ -183,7 +183,7 @@ const HandOverForm = () => {
                 goToStep={goToStep} 
                 chooseLocalization={chooseLocalization} 
                 getSpecificOrganization={getSpecificOrganization} />}
-            { step == 4 
+            { Number(step) === 4 
             && 
             <HandOverFormStep4  
                 handleAddress={handleAddress}
@@ -194,7 +194,7 @@ const HandOverForm = () => {
                 address={address}
                 term={term}  
                 />}
-                { step == 5 
+                { Number(step) === 5 
                 && 
                 <HandOverFormSummary
                     type={type}
@@ -206,7 +206,7 @@ const HandOverForm = () => {
                     term={term}  
                     goToStep={goToStep} 
                     />}
-                { step == 6 
+                { Number(step) === 6 
                 && 
                 <HandOverFormThankYou />}
         </div>

@@ -54,7 +54,7 @@ const Register = () => {
         const newValueIsValid = !e.target.validity.patternMismatch;
 
         if (emailErr && newValueIsValid) {
-                setEmailErr(false);
+            setEmailErr(false);
         }
         setEmail(e.target.value)
     }
@@ -107,16 +107,15 @@ const Register = () => {
             firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 // Signed in 
-                var user = userCredential.user;
+                // var user = userCredential.user;
                 setLoggedUser(true)
                 // ...
             })
             .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                // var errorCode = error.code;
+                // var errorMessage = error.message;
                 console.log(error)
                 alert(error.message)
-                // ..
             });
         }
         clearRegisterForm()

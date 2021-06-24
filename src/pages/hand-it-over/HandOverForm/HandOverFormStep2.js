@@ -96,24 +96,26 @@ const HandOverFormStep2 = ( {chooseBags, goToStep, bags} ) => {
         <>
             <h1 className="hand-over-form-title">Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h1>
             <Main>
-            <label>Liczba 60l worków:</label>
-            <DropDownContainer>
-                <DropDownHeader onClick={toggling}>
-                    { bags ? bags : (selectedOption || "– wybierz –") }
-                    { isOpen ? <ArrowUp /> : <ArrowDown /> }
-                </DropDownHeader>
-                { isOpen && (
-                <DropDownListContainer>
-                    <DropDownList>
-                    {options.map(option => (
-                        <ListItem className="step2-input" onClick={onOptionClicked(option)} key={option}>
-                            {option}
-                        </ListItem>
-                    ))}
-                    </DropDownList>
-                </DropDownListContainer>
-                )}
-            </DropDownContainer>
+                <label>Liczba 60l worków:</label>
+                <DropDownContainer>
+                    <DropDownHeader onClick={toggling}>
+                        { bags ? bags : (selectedOption || "– wybierz –") }
+                        { isOpen ? <ArrowUp /> : <ArrowDown /> }
+                    </DropDownHeader>
+                    { isOpen 
+                    && (
+                    <DropDownListContainer>
+                        <DropDownList>
+                        {options.map(option => (
+                            <ListItem className="step2-input" onClick={onOptionClicked(option)} key={option}>
+                                {option}
+                            </ListItem>
+                        ))}
+                        </DropDownList>
+                    </DropDownListContainer>
+                    )
+                    }
+                </DropDownContainer>
             </Main>
             <HandOverButton goToStep={goToStep} path="Wstecz" step={1}/>
             <HandOverButton goToStep={goToStep} path="Dalej" step={3}/>
