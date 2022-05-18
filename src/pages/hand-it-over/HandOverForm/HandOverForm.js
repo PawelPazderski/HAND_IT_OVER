@@ -21,7 +21,7 @@ const HandOverForm = () => {
         {info: "Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy."},
         {info: "Podaj adres oraz termin odbioru rzeczy."}
     ])
-    const [type, setType] = useState("")
+    const [type, setType] = useState([])
     const [bags, setBags] = useState("")
     const [localization, setLocalization] = useState("")
     const [helpGroups, setHelpGroups] = useState([])
@@ -60,6 +60,7 @@ const HandOverForm = () => {
             })
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);
+                console.log(docRef);
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
@@ -68,7 +69,13 @@ const HandOverForm = () => {
     }, [step])
 
     const chooseType = e => {
-        setType(e.target.value)
+        if (type.includes(e.target.value)) {
+            setType(prev => prev.filter(el => el != e.target.value) )
+        } else {
+            setType(prev => [...prev, e.target.value])
+        }
+        
+        
     }
 
     const chooseBags = value => {
@@ -120,7 +127,7 @@ const HandOverForm = () => {
     const goToStep = (e) => {
         e.preventDefault()
         if (!type.length) {
-            alert("Zaznacz jedną z opcji!")
+            alert("Zaznacz conajmniej jedną z opcji!")
             return
         }
         if ( Number(step) === 2 && !bags.length ) {

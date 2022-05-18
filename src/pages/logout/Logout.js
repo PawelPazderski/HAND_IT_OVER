@@ -10,8 +10,8 @@ const Logout = () => {
 
     return (
     <>
-        <NavTop />
-        <NavBottom />
+        {/* <NavTop />
+        <NavBottom /> */}
         <div className="logout-container">
            <Heading title="Wylogowanie nastąpiło" title2="pomyślnie!"/>
            <Link className="logout-bottom-link" to="/">Strona główna</Link>

@@ -13,14 +13,16 @@ const HandOverFormSummary = ( { goToStep, address, term, type, bags, helpGroups,
                 <div className="summary-icon-1"></div>
                 <h4 
                     style={{marginLeft: "25px", marginTop: "5px"}}>
-                        worki: {bags}, przekazuję: {type}, chcę pomóc: {helpGroups.join(", ")}
+                        <p>worki: {bags}</p>
+                        <p>przekazuję: {type.join(", ")}</p>
+                        <p>chcę pomóc: {helpGroups.join(", ")}</p>
                 </h4>
             </div>
             <div className="summary-items">
                 <div className="summary-icon-2"></div>
                 <h4 
                     style={{marginLeft: "25px", marginTop: "5px"}}>
-                    { localization ? `lokalizacja: ${localization}, ` : null }
+                    { localization ? `lokalizacja: ${localization}` : null }
                 </h4>
                 <h4 
                     style={{marginLeft: "5px",marginTop: "5px"}}>
