@@ -3,57 +3,36 @@ import DecorationHeading from '../../../components/DecorationHeading'
 import HomeWhoWeHelpList from '../HomeWhoWeHelpList'
 import HomePagination from '../../../components/Pagination/HomePagination'
 
+import app from "../../../firebase"
+import { getDatabase, ref, child, get } from "firebase/database";
+
+
 import './whowehelp.scss'
-
-
-const MENU_URL_fundations = "http://localhost:3001/fundations";
-const MENU_URL_local = "http://localhost:3001/local";
-const MENU_URL_organizations = "http://localhost:3001/organizations";
 
 const HomeWhoWeHelp = () => {
     const [ fundations, setFundations ] = useState([])
     const [ organizations, setOrganizations ] = useState([])
     const [ local, setLocal ] = useState([])
     const [ currentList, setCurrentList ] = useState("fundations")
-    // const [ totalItems, setTotalItems ] = useState(0)
 
     const [currentPage, setCurrentPage] = useState(1)
     const [itemPerPage] = useState(3)
 
     useEffect(() => {
-        fetch(MENU_URL_fundations)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error("Błąd")
-            } )
-            .then(fundations => setFundations(fundations))
-            .catch(err => console.log(err))
-    },[])
-
-    useEffect(() => {
-        fetch(MENU_URL_organizations)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error("Błąd")
-            } )
-            .then(organizations => setOrganizations(organizations))
-            .catch(err => console.log(err))
-    },[])
-
-    useEffect(() => {
-        fetch(MENU_URL_local)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-                throw new Error("Błąd")
-            } )
-            .then(local => setLocal(local))
-            .catch(err => console.log(err))
+        const dbRef = ref(getDatabase(app));
+            get(child(dbRef, `whowehelp`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                // console.log(snapshot.val());
+                const db = snapshot.val()
+                setFundations(db[0].fundations)
+                setLocal(db[1].local)
+                setOrganizations(db[2].organizations)
+            } else {
+                console.log("No data available");
+            }
+            }).catch((error) => {
+            console.error(error);
+            });
     },[])
 
     //Fundations

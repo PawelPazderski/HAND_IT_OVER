@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import firebase from '../../../fire'
-import "firebase/auth";
-import "firebase/firestore";
+
+import app from "../../../firebase"
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 import HandOverFormStep1 from './HandOverFormStep1'
 import HandOverFormStep2 from './HandOverFormStep2'
@@ -39,34 +40,67 @@ const HandOverForm = () => {
         note: ""
     })
 
-    firebase.auth().onAuthStateChanged((user) => {
+    const auth = getAuth(app);
+    onAuthStateChanged(auth, (user) => {
         if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            // const uid = user.uid;
             setActiveUser(user.email)
         } else {
+            // User is signed out
+
             setActiveUser(null)
         }
-    });
+        });
 
     useEffect(()=>{
-        if ( Number(step) === 6) {
-            firebase.firestore().collection("user-forms").add({
-                user: activeUser,
-                type,
-                bags,
-                localization,
-                helpGroups,
-                address,
-                term
-            })
-            .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
-                console.log(docRef);
-            })
-            .catch((error) => {
-                console.error("Error adding document: ", error);
-            });
+
+        async function addToCollection () {
+            try {
+                const docRef = await addDoc(collection(getFirestore(app), "user-forms"), {
+                    user: activeUser,
+                    type,
+                    bags,
+                    localization,
+                    helpGroups,
+                    address,
+                    term
+                    });
+                
+                    console.log("Document written with ID: ", docRef.id);
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+            }
         }
+
+        if ( Number(step) === 6) {
+            addToCollection()
+            clearForm()
+        } else {
+            return
+        }
+
     }, [step])
+
+    const clearForm = () => {
+        setActiveUser(null);
+        setType([]);
+        setBags("");
+        setLocalization("");
+        setHelpGroups([]);
+        setAddress({
+            street: "",
+            city: "",
+            postCode: "",
+            phone: ""
+        });
+        setTerm({
+            date: "",
+            time: "",
+            note: ""
+        })
+    }
 
     const chooseType = e => {
         if (type.includes(e.target.value)) {

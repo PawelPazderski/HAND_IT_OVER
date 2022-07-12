@@ -3,7 +3,7 @@ import HandOverHeader from "../HandOverHeader"
 import HandOverForm from "../HandOverForm"
 import HomeContact from '../../home/HomeContact'
 
-import './hand-it-over.scss'
+// import './hand-it-over.scss'
 
 const HandOver = () => {
 

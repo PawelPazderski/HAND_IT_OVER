@@ -1,5 +1,7 @@
 {
-    "fundations": [
+    "whowehelp": [
+        {  
+        "fundations": [
         {
             "id": 1,
             "type": "Fundacja",
@@ -64,74 +66,80 @@
             "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
             "products": "ubrania, jedzenie, sprzęt AGD, meble"
         }
-    ],
-    "local": [
-        {
-            "id": 1,
-            "type": "Zbiórka lokalna",
-            "name": "Po sąsiedzku",
-            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, jedzenie, kosmetyki, sprzęt AGD małe i duże, meble, zabawki",
-            "description": "Poniżej znajdziesz listę zweryfikowanych Zbiórek lokalnych, które udało sie wesprzeć. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
+        ]
         },
         {
-            "id": 2,
-            "type": "Zbiórka lokalna",
-            "name": "Nasz fyrtel",
-            "goal": "Pomoc dzieciom z ubogich rodzin.",
-            "products": "ubrania, meble, zabawki, chemia, kosmetyki"
+        "local": [
+            {
+                "id": 1,
+                "type": "Zbiórka lokalna",
+                "name": "Po sąsiedzku",
+                "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+                "products": "ubrania, jedzenie, kosmetyki, sprzęt AGD małe i duże, meble, zabawki",
+                "description": "Poniżej znajdziesz listę zweryfikowanych Zbiórek lokalnych, które udało sie wesprzeć. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
+            },
+            {
+                "id": 2,
+                "type": "Zbiórka lokalna",
+                "name": "Nasz fyrtel",
+                "goal": "Pomoc dzieciom z ubogich rodzin.",
+                "products": "ubrania, meble, zabawki, chemia, kosmetyki"
+            },
+            {
+                "id": 3,
+                "type": "Zbiórka lokalna",
+                "name": "Ho no tu",
+                "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+                "products": "ubrania, jedzenie, ciepłe koce, kosmetyki, chemia"
+            }
+        ]
         },
         {
-            "id": 3,
-            "type": "Zbiórka lokalna",
-            "name": "Ho no tu",
-            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce, kosmetyki, chemia"
-        }
-    ],
-    "organizations": [
-        {
-            "id": 1,
-            "type": "Organizacja",
-            "name": "Lorem Ipsum 1",
-            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
-            "description": "W naszej bazie znajdziesz listę zweryfikowanych Organizacji, które wspieramy. Możesz sprawdzić co robią, jak pomagają i czego aktualnie potrzebują."
-        },
-        {
-            "id": 2,
-            "type": "Organizacja",
-            "name": "Lorem Ipsum 2",
-            "goal": "Pomoc dzieciom z ubogich rodzin.",
-            "products": "ubrania, meble, zabawki"
-        },
-        {
-            "id": 3,
-            "type": "Organizacja",
-            "name": "Lorem Ipsum 3",
-            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce"
-        },
-        {
-            "id": 4,
-            "type": "Organizacja",
-            "name": "Lorem Ipsum 4",
-            "goal": "Pomoc dla osób z niepełnosprawnością.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
-        },
-        {
-            "id": 5,
-            "type": "Organizacja",
-            "name": "Lorem Ipsum 5",
-            "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
-            "products": "ubrania, sprzęt AGD, meble"
-        },
-        {
-            "id": 6,
-            "type": "Organizacja",
-            "name": "Lorem Ipsum 6",
-            "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
-            "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
-        }
+        "organizations": [
+            {
+                "id": 1,
+                "type": "Organizacja",
+                "name": "Lorem Ipsum 1",
+                "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+                "products": "ubrania, jedzenie, sprzęt AGD, meble, zabawki",
+                "description": "W naszej bazie znajdziesz listę zweryfikowanych Organizacji, które wspieramy. Możesz sprawdzić co robią, jak pomagają i czego aktualnie potrzebują."
+            },
+            {
+                "id": 2,
+                "type": "Organizacja",
+                "name": "Lorem Ipsum 2",
+                "goal": "Pomoc dzieciom z ubogich rodzin.",
+                "products": "ubrania, meble, zabawki"
+            },
+            {
+                "id": 3,
+                "type": "Organizacja",
+                "name": "Lorem Ipsum 3",
+                "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+                "products": "ubrania, jedzenie, ciepłe koce"
+            },
+            {
+                "id": 4,
+                "type": "Organizacja",
+                "name": "Lorem Ipsum 4",
+                "goal": "Pomoc dla osób z niepełnosprawnością.",
+                "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            },
+            {
+                "id": 5,
+                "type": "Organizacja",
+                "name": "Lorem Ipsum 5",
+                "goal": "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.",
+                "products": "ubrania, sprzęt AGD, meble"
+            },
+            {
+                "id": 6,
+                "type": "Organizacja",
+                "name": "Lorem Ipsum 6",
+                "goal": "Pomoc dla osób nie posiadających miejsca zamieszkania.",
+                "products": "ubrania, jedzenie, ciepłe koce, sprzęt AGD, meble"
+            }
+        ]
+        }  
     ]
 }

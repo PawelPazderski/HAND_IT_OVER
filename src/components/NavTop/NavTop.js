@@ -1,28 +1,42 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom';
-import firebase from '../../fire'
 
-import "firebase/auth";
-import "firebase/firestore";
+import app from "../../firebase"
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 
 const NavTop = () => {
     // const [myUser, setMyUser] = useState(loggedUser)
     const [activeUser, setActiveUser] = useState(null)
 
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            // var uid = user.uid;
-            setActiveUser(user.email)
-        } else {
-            // User is signed out
-            setActiveUser(null)
-        }
-    });
+
+    useEffect(()=> {
+        const auth = getAuth(app);
+            const test = onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    // const uid = user.uid;
+                    setActiveUser(user.email)
+                } else {
+                    // User is signed out
+
+                    setActiveUser(null)
+                }
+            });
+        
+        return() => test()
+
+    },[activeUser])
 
     const logOut = () => {
-        firebase.auth().signOut()
+        signOut(getAuth(app)).then(() => {
+            // Sign-out successful.
+            console.log("Signed out")
+            }).catch((error) => {
+            // An error happened.
+            console.log(error)
+            });
     }
 
     return (

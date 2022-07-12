@@ -1,30 +1,37 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import NavBottom from '../../../components/NavBottom'
 import NavTop from '../../../components/NavTop'
 import Heading from '../../../components/DecorationHeading'
 import {Link} from 'react-router-dom'
 
-import firebase from '../../../fire'
-
-import "firebase/auth";
-import "firebase/firestore";
+import app from "../../../firebase"
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import './homeheader.scss'
 
 const HomeHeader = () => {
     const [activeUser, setActiveUser] = useState(null) 
 
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            // var uid = user.uid;
-            setActiveUser(user.email)
-        } else {
-            // User is signed out
-            setActiveUser(null)
-        }
-    });
+    useEffect(()=> {
+
+        const auth = getAuth(app);
+            const test = onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    // const uid = user.uid;
+                    setActiveUser(user.email)
+                    
+                } else {
+                    // User is signed out
+
+                    setActiveUser(null)
+                }
+            });
+            return () => test()
+
+    },[activeUser])
+    
 
     return (
     <>
@@ -42,4 +49,4 @@ const HomeHeader = () => {
     </>)
 }
     
-export default HomeHeader
+export default HomeHeader;

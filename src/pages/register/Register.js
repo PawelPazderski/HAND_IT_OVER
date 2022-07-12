@@ -1,19 +1,13 @@
-// Firebase App (the core Firebase SDK) is always required and must be listed first
-import firebase from '../../fire'
 import React, { useState, useEffect } from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
 import {Link} from 'react-router-dom';
-// import patterns from './../../components/Patterns'
 
-
-import "firebase/auth";
-import "firebase/firestore";
+import app from "../../firebase"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import './register.scss'
-
-
 
 const Register = () => {
     const [email, setEmail] = useState("")
@@ -28,7 +22,7 @@ const Register = () => {
 
     useEffect(()=>{
         if (loggedUser) {
-            window.location.assign('http://localhost:3000/')
+            window.location.href="/"
         }
     },[loggedUser])
 
@@ -102,20 +96,21 @@ const Register = () => {
 
     const addUser = (e) => {
         e.preventDefault()
-        
+
         if (email.length && password.length && passwordRepeat.length && !emailErr && !passwordErr && !passwordRepeatErr) {
-            firebase.auth().createUserWithEmailAndPassword(email, password)
+
+            const auth = getAuth(app);
+
+            createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
-                // var user = userCredential.user;
+                // const user = userCredential.user;
                 setLoggedUser(true)
-                // ...
             })
             .catch((error) => {
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
                 console.log(error)
                 alert(error.message)
+
             });
         }
         clearRegisterForm()
@@ -198,7 +193,7 @@ const Register = () => {
                     <Link className="bottom-link" to="/login">Zaloguj się</Link>
                 </li>
                 <li>
-                    <Link className="bottom-link" onClick={addUser}>Załóż konto</Link>
+                    <span className="bottom-link" onClick={addUser}>Załóż konto</span>
                 </li>
             </ul>
         </div>

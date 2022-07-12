@@ -1,12 +1,11 @@
-import firebase from '../../fire'
 import React, { useState, useEffect } from 'react'
 import Heading from '../../components/DecorationHeading'
 import NavTop from '../../components/NavTop'
 import NavBottom from '../../components/NavBottom'
 import {Link} from 'react-router-dom';
 
-import "firebase/auth";
-import "firebase/firestore";
+import app from "../../firebase"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import './login.scss'
 
@@ -22,7 +21,7 @@ const Login = () => {
 
     useEffect(()=>{
         if (loggedUser) {
-            window.location.assign('http://localhost:3000/')
+            window.location.href="/"
         }
     },[loggedUser])
     
@@ -73,18 +72,29 @@ const Login = () => {
 
     const loginUser = () => {
         if (email.length && password.length && !emailErr && !passwordErr) {
-            firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+            const auth = getAuth(app);
+                signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    // const user = userCredential.user;
+                    setLoggedUser(true)
+                    // ...
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+    //         firebase.auth().signInWithEmailAndPassword(email, password)
+    //         .then((userCredential) => {
                 // Signed in
                 // var user = userCredential.user;
                 // ...
-                setLoggedUser(true)
-            })
-            .catch((error) => {
-                //  var errorCode = error.code;
-                var errorMessage = error.message;
-                alert(errorMessage)
-            });
+    //             setLoggedUser(true)
+    //         })
+    //         .catch((error) => {
+    //             //  var errorCode = error.code;
+    //             var errorMessage = error.message;
+    //             alert(errorMessage)
+    //         });
         }
         setEmail("")
         setPassword("")
@@ -142,7 +152,7 @@ const Login = () => {
                     <Link className="bottom-link" to="/register">Załóż konto</Link>
                 </li>
                 <li>
-                    <Link className="bottom-link" onClick={loginUser}>Zaloguj się</Link>
+                    <span className="bottom-link" onClick={loginUser}>Zaloguj się</span>
                 </li>
                 
             </ul>
@@ -151,4 +161,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;
