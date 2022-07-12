@@ -9,8 +9,8 @@ const HandOverFormThankYou = () => {
             <div className="thankyou-container">
                 <Heading 
                     title="Dziękujemy za przesłanie formularza" 
-                    title2="Prześlemy wszelkie informacje"
-                    title3="na Twoją skrzynkę mailową."/>
+                    title2="Wkrótce się z Tobą"
+                    title3="skontaktujemy."/>
                 <Link className="thankyou-bottom-link" to="/">Strona główna</Link>
             </div>
         </>)

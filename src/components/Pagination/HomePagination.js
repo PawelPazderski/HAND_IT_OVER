@@ -33,4 +33,4 @@ const HomePagination = ( {itemPerPage, totalItems, paginate, currentList} ) => {
     )
 }
 
-export default HomePagination
+export default HomePagination;

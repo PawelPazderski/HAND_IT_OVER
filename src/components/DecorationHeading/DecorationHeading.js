@@ -14,4 +14,4 @@ const Heading = ({title, title2, title3}) => {
     </>)
 }
     
-export default Heading
+export default Heading;

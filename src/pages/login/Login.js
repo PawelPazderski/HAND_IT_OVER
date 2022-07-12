@@ -83,18 +83,6 @@ const Login = () => {
                 .catch((error) => {
                     console.log(error)
                 });
-    //         firebase.auth().signInWithEmailAndPassword(email, password)
-    //         .then((userCredential) => {
-                // Signed in
-                // var user = userCredential.user;
-                // ...
-    //             setLoggedUser(true)
-    //         })
-    //         .catch((error) => {
-    //             //  var errorCode = error.code;
-    //             var errorMessage = error.message;
-    //             alert(errorMessage)
-    //         });
         }
         setEmail("")
         setPassword("")

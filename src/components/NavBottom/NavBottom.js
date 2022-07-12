@@ -3,7 +3,6 @@ import { HashLink } from 'react-router-hash-link';
 
 
 const NavBottom = () => {
-  
 
     return (
     <>
@@ -30,4 +29,4 @@ const NavBottom = () => {
     </>)
 }
     
-export default NavBottom
+export default NavBottom;

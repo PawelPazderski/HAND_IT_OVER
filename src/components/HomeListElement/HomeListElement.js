@@ -2,8 +2,7 @@ import React from 'react'
 
 import './homelistelement.scss'
 
-const HomeListElement = ({id,type, name, goal, products}) => {
-  
+const HomeListElement = ({id, type, name, goal, products}) => {
 
     return (
     <>

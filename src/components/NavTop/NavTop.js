@@ -6,7 +6,6 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 
 const NavTop = () => {
-    // const [myUser, setMyUser] = useState(loggedUser)
     const [activeUser, setActiveUser] = useState(null)
 
 
@@ -67,4 +66,4 @@ const NavTop = () => {
     </>)
 }
     
-export default NavTop
+export default NavTop;

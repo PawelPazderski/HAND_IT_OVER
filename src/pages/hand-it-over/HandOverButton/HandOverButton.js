@@ -9,4 +9,4 @@ const HandOverButton = ( {path, step, goToStep} ) => {
     )
 }
 
-export default HandOverButton
+export default HandOverButton;

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HandOverHeader from "../HandOverHeader"
 import HandOverForm from "../HandOverForm"
 import HomeContact from '../../home/HomeContact'
 
-// import './hand-it-over.scss'
 
 const HandOver = () => {
+
+    useEffect(()=> {
+        window.scrollTo(0, 0)
+    },[])
 
     return (
     <>
@@ -16,4 +19,4 @@ const HandOver = () => {
     )
 }
     
-export default HandOver
+export default HandOver;
